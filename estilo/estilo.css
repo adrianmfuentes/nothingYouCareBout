@@ -1,0 +1,327 @@
+/* Author: Adrian Martinez Fuentes - UO295454 */
+
+/* Paleta de colores:
+    - Fondo de la web: F4E1C1 (Crema oscuro)
+    - Texto de la web: 1F3B4D (Azul Marino Oscuro, 9.1 contraste con F4E1C1)
+    - Fondo de Header: 1F3B4D (Azul Marino)
+    - Texto de nav y h1: FFFFFF (Blanco, 11.73 contraste con 1F3B4D)
+*/ 
+
+
+/* ###################### General ###################### */
+/* Especificidad 001 */
+html {
+    font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+
+/* Especificidad 001 */
+body { 
+    background-color: #F4E1C1;
+    color: #1F3B4D;
+}
+
+/* Especificidad 002 */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Especificidad 001 */
+header, footer {
+    background-color: #0A1A2E;
+    color: #FFFFFF;
+}
+
+/* Especificidad 002 */
+footer p {
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Especificidad 001 */
+body > p {
+    margin-left: 0.4em;;
+    font-size: small;
+}
+
+
+/* ###################### Header del body ###################### */
+/* Especificidad 002 */
+h1 a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Añadir padding para aumentar el área táctil */
+    font-size: 1.5rem; /* Añadir tamaño de fuente para aumentar el área táctil */
+    /*background-color heredado de header*/
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    /*background-color heredado de header*/
+}
+
+/* Especificidad 002 */
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem; /* Aumentar el espacio entre los enlaces */
+    /*background-color heredado de header*/
+}
+
+/* Especificidad 011 */
+a:hover {
+    text-decoration: bold;
+    border: 2px solid #A9C4D4; /* Color de borde */
+    border-radius: 8px; /* Bordes redondos */
+    /*background-color heredado de header*/
+}
+
+.active{ 
+    text-decoration: bold;
+    border: 2px solid #A9C4D4; /* Color de borde */
+    border-radius: 8px; /* Bordes redondos */
+    /*background-color heredado de header*/
+}
+
+/* ###################### Main del body ###################### */
+
+/* Especificidad 001 */
+main {
+    margin-left: 0.4em;;
+    flex: 1; /* Ocupar todo el espacio disponible */
+}
+
+/* Especificidad 002 */
+main h2 {
+    text-decoration: underline;
+    font-size: larger;
+}
+
+/* Especificidad 002 */
+h3,h4 {
+    text-decoration: underline;
+    font-size: large;
+}
+
+
+/* ###################### Listas del body ###################### */
+/* Especificidad 004 */
+ul, ol, dl, p {
+    font-size: 1.05rem;
+}
+
+/* Especificidad 002 */
+ul, ol {
+    background-color: #EDD9B0; 
+    list-style-position: inside;
+    margin: 0.313rem 0.625rem 0.625rem 0.625rem;
+    /*color heredado de body*/
+}
+
+/* Especificidad 001 */
+ul {
+    list-style-type: circle;
+}
+
+/* Especificidad 001 */
+ol {
+    list-style-type: square;
+}
+
+/* Especificidad 001 */
+li {
+    margin-bottom: 0.625rem;
+    line-height: 1.5;
+}
+
+/* Especificidad 002 */
+dt, dd {
+    line-height: 1.5;
+}
+
+/* Especificidad 001 */
+dt {
+    text-decoration: underline;
+    list-style: circle;
+}
+
+/* Especificidad 001 */
+dd {
+    margin-bottom: 1.5rem;
+}
+
+
+/* ###################### Estilizacion de la tabla ###################### */
+/* Especificidad 001 */
+/* Especificidad 001 */
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #333; /* Borde más visible para la tabla */
+    font-family: Arial, sans-serif;
+    margin-bottom: 2rem;
+    background-color: #fff; /* Fondo blanco para la tabla */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto de elevación */
+}
+
+/* Especificidad 002 */
+table caption {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-right: 0.4em;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    color: #333;
+}
+
+/* Especificidad 011 */
+th, td {
+    padding: 1em 2em; /* Relleno de las celdas */
+    text-align: left;
+    border: 0.5em solid #ddd; /* Borde para las celdas */
+}
+
+/* Especificidad 011 */
+th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Especificidad 011 */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Especificidad 011 */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Especificidad 011 */
+th:nth-child(1) {
+    width: 30%;
+}
+
+
+/* ###################### Elementos multimedia ###################### */
+/* Especificidad 003 */
+video {
+    width: 60%;
+    height: auto;
+}
+
+img {
+    width: 40%;
+    height: auto;
+}
+
+.ocon.pequeño {
+    width: auto;
+    height: 10%;
+}
+
+/* ###################### Juegos ###################### */
+/* Especificidad 002 */
+main>h2 {
+    text-align: center;
+}
+
+
+/* ###################### Ayuda ###################### */
+/* Especificidad 100 */
+#help-popup {
+    width: 80%;
+    max-width: 100%;
+    max-height: 60%;
+    margin: auto;
+    padding: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    z-index: 1000;
+    resize: both;
+    overflow: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Especificidad 101 */
+#help-popup h2 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+    text-align: center;
+    color: #333;
+}
+
+/* Especificidad 101 */
+#help-popup h3 {
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color: #555;
+}
+
+/* Especificidad 101 */
+#help-popup p {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #666;
+}
+
+/* Especificidad 101 */
+#help-popup ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+}
+
+/* Especificidad 102 */
+#help-popup ul li {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #777;
+}
+
+/* Especificidad 201 */
+#help-popup button#close-help {
+    display: block;
+    margin: 1em auto 0;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: #1F3B4D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Especificidad 211 */
+#help-popup button#close-help:hover {
+    background-color: #163240;
+}
+
+/* Media Queries para adaptabilidad */
+@media (max-width: 768px) {
+    #help-popup {
+        width: 90%;
+        padding: 1em;
+    }
+
+    #help-popup h2 {
+        font-size: 1.5em;
+    }
+
+    #help-popup h3 {
+        font-size: 1.3em;
+    }
+
+    #help-popup p, #help-popup ul li {
+        font-size: 1em;
+    }
+}

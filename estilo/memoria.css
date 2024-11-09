@@ -1,0 +1,120 @@
+/* Author: Adrian Martinez Fuentes - UO295454 */
+
+/* ###################### General ###################### */
+
+/* Especificidad 100 */
+#memory-game {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 2rem;
+}
+
+/* Especificidad 010 */
+#cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    justify-content: center; 
+    gap: 1rem; 
+    max-width: 60%; 
+}
+
+/* Especificidad 002 */
+section > h2 {
+    text-align: center; 
+    margin-bottom: 1em; 
+}
+
+/* Especificidad 001 */
+article {
+    width: 17%; 
+    height: auto; 
+    aspect-ratio: 3/5; 
+    margin: 1em; 
+    border: 0.5em solid #000; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    position: relative; 
+    cursor: pointer;
+    background-color: #FFFFFF; 
+    transform-style: preserve-3d; 
+    transition: transform 0.5s;
+}
+
+/* Especificidad 004 */
+article h3, article img {
+    backface-visibility: hidden; 
+    position: relative; 
+    top: 0;
+    left: 0;
+}
+
+/* Especificidad 002 */
+article h3 {
+    text-decoration: none;
+    color: #000000;
+    text-align: center; 
+    backface-visibility: hidden; 
+}
+
+/* Especificidad 002 */
+article img {
+    width: 80%; 
+    height: auto; 
+    justify-content: center;
+    transform: rotateY(180deg); 
+}
+
+/* Especificidad 001 */
+[data-state="revealed"] {
+    transform: rotateY(180deg);
+}
+
+/* Especificidad 002 */
+[data-state="hidden"] img {
+    display: none; 
+}
+
+/* Especificidad 002 */
+[data-state="hidden"] h3 {
+    display: block; 
+}
+
+/* Especificidad 002 */
+[data-state="revealed"] img {
+    display: block; 
+}
+
+/* Especificidad 002 */
+[data-state="revealed"] h3 {
+    display: none; 
+}
+
+/* Especificidad 001 */
+dialog {
+    width: 100%;
+    padding: 1em;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Especificidad 002 */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+/* Especificidad 100 */
+#tutorial-button {
+    margin-left: 5em;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}

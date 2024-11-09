@@ -1,0 +1,65 @@
+/* Estilos para la previsión del tiempo */
+/* Author: Adrian Martinez Fuentes - UO295454 */
+
+/* ###################### General ###################### */
+/* Especificidad 001 */
+article {
+    background-color: #EDD9B0; /* Fondo similar a listas */
+    border: 2px solid #1F3B4D; /* Borde azul marino oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 1rem; /* Espaciado interno */
+    margin: 1rem 0; /* Espaciado externo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+}
+
+/* Especificidad 002 */
+article h2 {
+    color: #1F3B4D; /* Color de texto azul marino oscuro */
+    font-size: 1.25rem; /* Tamaño de fuente */
+    margin-bottom: 0.5rem; /* Espaciado inferior */
+}
+
+/* Especificidad 002 */
+article p {
+    color: #1F3B4D; /* Color de texto azul marino oscuro */
+    font-size: 1rem; /* Tamaño de fuente */
+    margin: 0.25rem 0; /* Espaciado vertical */
+}
+
+/* Especificidad 002 */
+article img {
+    width: 50px; /* Ancho de la imagen */
+    height: auto; /* Altura automática */
+    display: block; /* Mostrar como bloque */
+    margin: 0.5rem auto; /* Centrar imagen */
+}
+
+/* ###################### Media Queries ###################### */
+@media (min-width: 768px) {
+    /* Especificidad 001 */
+    article {
+        display: flex; /* Disposición en fila */
+        align-items: center; /* Alinear elementos verticalmente */
+        justify-content: space-between; /* Espacio entre elementos */
+    }
+
+    /* Especificidad 006 */
+    article h2, article p, article img {
+        margin: 0; /* Eliminar márgenes */
+    }
+
+    /* Especificidad 002 */
+    article h2 {
+        flex: 1; /* Flexibilidad */
+    }
+
+    /* Especificidad 002 */
+    article p {
+        flex: 2; /* Flexibilidad */
+    }
+
+    /* Especificidad 002 */
+    article img {
+        flex: 0; /* Sin flexibilidad */
+    }
+}

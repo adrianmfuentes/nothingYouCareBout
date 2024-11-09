@@ -1,0 +1,39 @@
+/* Author: Adrian Martinez Fuentes - UO295454 */
+
+/* ###################### General ###################### */
+
+/* Especificidad 001 */
+menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;          
+    gap: 1rem;                     
+    margin: 1.4em;            
+    padding: 0.75rem 1.5rem;          
+    border-radius: 0.5rem;          
+    background-color: #0A1A2E;     
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);         
+}
+
+
+/* Especificidad 002 */
+menu a {
+    text-decoration: none;           
+    color: #FFFFFF;                   
+    font-weight: bold;             
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.5rem;          
+    border-radius: 0.25rem;            
+    transition: background-color 0.3s, color 0.3s;   
+    /*background-color heredado de menu */
+}
+
+@media (max-width: 768px) {
+    menu {
+        flex-direction: column;
+    }
+
+    body > p {
+        display: none; /* Ocultar las migas de navegación */
+    }
+}
