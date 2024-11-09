@@ -145,3 +145,37 @@ main.load .light:nth-child(4) {
 main.unload .light {
     animation: out 0.1s forwards;
 }
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    main {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    main>h2 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 0.5em;
+    }
+    
+    main>h2 {
+        font-size: 1em;
+    }
+}

@@ -98,7 +98,7 @@ class Memoria {
             article.setAttribute('data-state', 'hidden'); 
 
             // Crear el encabezado y añadirlo al artículo
-            const header = document.createElement('h3');
+            const header = document.createElement('h2');
             header.textContent = "Memory card"; 
             article.appendChild(header);
 

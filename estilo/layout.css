@@ -27,41 +27,6 @@ nav a {
     margin-left: 1.2rem;
 }
 
-/* Especificidad 001 */
-footer {
-    padding-top: 1rem;
-    padding-right: 2rem;
-    padding-bottom: 1rem;
-    padding-left: 2rem;
-    text-align: center; /* Alineación del texto */
-    width: 95%; /* Ancho completo */
-    margin-top: auto; /* Empuja el footer al final */
-}
-
-/* Especificidad 002 */
-footer p {
-    color: #FFFFFF; /* Texto blanco */
-    /* background-color heredado del elemento body en estilo.css */
-}
-
-/* Especificidad 011 */
-footer .help-button {
-    padding: 0.5em 1em;
-    font-size: 1em;
-    background-color: #1F3B4D;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1em;
-}
-
-/* Especificidad 021 */
-footer .help-button:hover {
-    background-color: #163240;
-}
-
-
 /* ###################### Media queries ###################### */
 @media (max-width: 768px) {
     /* Especificidad 001 */

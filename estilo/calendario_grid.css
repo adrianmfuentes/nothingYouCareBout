@@ -1,0 +1,70 @@
+/* Author: Adrian Martinez Fuentes - UO295454 */
+
+/* Espesificidad 100 */
+#show-races {
+    padding: 1.5em 2.5em;
+    font-size: 1em;
+    margin-bottom: 3em;
+    cursor: pointer;
+    background-color: #1F3B4D;
+    color: #fff;
+    border: none;
+    border-radius: 1.5em;
+    transition: background-color 0.3s ease;
+}
+
+/* Espesificidad 110 */
+#show-races:hover {
+    background-color: #e64a19;
+}
+
+/* Espesificidad 001 */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.em;
+}
+
+/* Espesificidad 100 */
+#show-races {
+    cursor: pointer;
+}
+
+/* Espesificidad 100 */
+#race-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3em;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Espesificidad 010 */
+.race {
+    background-color: #f1f1f1;
+    padding: 2em;
+    border-radius: 1.5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Espesificidad 011 */
+.race h3 {
+    margin: 0 0 1.5em 0;
+}
+
+/* Espesificidad 011 */
+.race p {
+    margin: 1.25em 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #race-container {
+        grid-template-columns: 1fr;
+    }
+}

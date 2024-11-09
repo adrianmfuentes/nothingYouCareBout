@@ -15,8 +15,9 @@
         <link rel="icon" type="image/x-icon" href="multimedia/imagenes/favicon-16x16.png">
         <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+        <link rel="stylesheet" type="text/css" href="estilo/footer.css" />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
-        <link rel="stylesheet" type="text/css" href="estilo/agenda_grid.css">
+        <link rel="stylesheet" type="text/css" href="estilo/calendario_grid.css">
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="js/calendario.js"></script>
@@ -43,15 +44,6 @@
 
         <p>Estas en en Inicio >> Calendario </p>
 
-        <!-- Botón para abrir la ayuda -->
-        <dialog id="help-popup">
-            <h2>Ayuda</h2>
-            <section id="help-content">
-                <!-- El contenido de la ayuda se cargará aquí dinámicamente -->
-            </section>
-            <button id="close-help">Cerrar</button>
-        </dialog>
-
         <main>
             <h2>Calendario</h2>
             <button id="show-races">Mostrar Carreras</button>
@@ -61,18 +53,7 @@
 
             <!-- Script para cargar el archivo agenda.js y ejecutar el código solo al hacer clic en el botón -->
             <script>
-                document.getElementById("show-races").addEventListener("click", function() {
-                    // Carga dinámica del archivo JS si no ha sido cargado aún
-                    if (typeof Agenda === "undefined") {
-                        $.getScript("js/agenda.js", function() {
-                            const agenda = new Agenda(); // Instancia de la clase Agenda después de cargar el script
-                            agenda.fetchRaces(); // Llamada a la función para obtener las carreras
-                        });
-                    } else {
-                        const agenda = new Agenda();
-                        agenda.fetchRaces();
-                    }
-                });
+                
             </script>
         </main>
 
@@ -92,18 +73,25 @@
            
 
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                function loadPais() {
-                    const paisInfo = new Pais("Paises Bajos", "Amsterdam", 18268089);
-                    document.querySelector("aside").innerHTML += paisInfo.getAllInformation();
+            document.getElementById("show-races").addEventListener("click", function() {
+                // Carga dinámica del archivo JS si no ha sido cargado aún
+                if (typeof Calendario === "undefined") {
+                    $.getScript("js/agenda.js", function() {
+                        const calendario = new Calendario();
+                        calendario.fetchRaces(); 
+                    });
+                } else {
+                    const calendario = new Calendario();
+                    calendario.fetchRaces();
                 }
-    
+            });
+            
+            document.addEventListener("DOMContentLoaded", () => {
                 function loadHelp() {
                     const help = new HelpHandler();
                     document.querySelector("#help-content").innerHTML = help.getHelp();
                 }
     
-                loadPais();
                 loadHelp();
             });
         </script>

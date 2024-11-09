@@ -34,11 +34,6 @@ header, footer {
     color: #FFFFFF;
 }
 
-/* Especificidad 002 */
-footer p {
-    text-align: center;
-    font-size: 1rem;
-}
 
 /* Especificidad 001 */
 body > p {

@@ -44,7 +44,7 @@ article {
 }
 
 /* Especificidad 004 */
-article h3, article img {
+article h2, article img {
     backface-visibility: hidden; 
     position: relative; 
     top: 0;
@@ -52,7 +52,9 @@ article h3, article img {
 }
 
 /* Especificidad 002 */
-article h3 {
+article h2 {
+    margin-left: 0.2em;
+    margin-right: 0.2em;
     text-decoration: none;
     color: #000000;
     text-align: center; 
@@ -78,7 +80,7 @@ article img {
 }
 
 /* Especificidad 002 */
-[data-state="hidden"] h3 {
+[data-state="hidden"] h2 {
     display: block; 
 }
 
@@ -88,7 +90,7 @@ article img {
 }
 
 /* Especificidad 002 */
-[data-state="revealed"] h3 {
+[data-state="revealed"] h2 {
     display: none; 
 }
 
@@ -111,10 +113,40 @@ dialog::backdrop {
 #tutorial-button {
     margin-left: 5em;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #1F3B4D;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #cards-container {
+        max-width: 80%;
+    }
+
+    article {
+        width: 25%; /* Ajustar el ancho relativo */
+    }
+
+    article h2 {
+        font-size: 0.875rem; /* Ajustar tamaño de fuente relativo */
+    }
+}
+
+@media (max-width: 480px) {
+    #cards-container {
+        max-width: 100%;
+        gap: 0.5rem;
+    }
+
+    article {
+        width: 40%; /* Ajustar el ancho relativo */
+    }
+
+    article h2 {
+        font-size: 0.75rem; /* Ajustar tamaño de fuente relativo */
+    }
 }

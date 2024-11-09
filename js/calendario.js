@@ -1,4 +1,4 @@
-class Agenda {
+class Calendario {
 
     constructor() {
         this.apiUrl = 'https://api.jolpi.ca/ergast/f1/2024.json';
