@@ -91,12 +91,6 @@ main {
 }
 
 /* Especificidad 002 */
-main h2 {
-    text-decoration: underline;
-    font-size: larger;
-}
-
-/* Especificidad 002 */
 h3,h4 {
     text-decoration: underline;
     font-size: large;

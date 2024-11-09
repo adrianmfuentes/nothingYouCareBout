@@ -5,33 +5,33 @@
 /* Especificidad 001 */
 article {
     background-color: #EDD9B0; /* Fondo similar a listas */
-    border: 2px solid #1F3B4D; /* Borde azul marino oscuro */
+    border: 0.5em solid #1F3B4D; /* Borde azul marino oscuro */
     border-radius: 8px; /* Bordes redondeados */
-    padding: 1rem; /* Espaciado interno */
-    margin: 1rem 0; /* Espaciado externo */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    padding: 1em; /* Espaciado interno */
+    margin: 1em 1em; /* Espaciado externo */
+    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
 }
 
 /* Especificidad 002 */
 article h2 {
     color: #1F3B4D; /* Color de texto azul marino oscuro */
-    font-size: 1.25rem; /* Tamaño de fuente */
-    margin-bottom: 0.5rem; /* Espaciado inferior */
+    font-size: 1.25em; /* Tamaño de fuente */
+    margin-bottom: 0.5em; /* Espaciado inferior */
 }
 
 /* Especificidad 002 */
 article p {
     color: #1F3B4D; /* Color de texto azul marino oscuro */
-    font-size: 1rem; /* Tamaño de fuente */
-    margin: 0.25rem 0; /* Espaciado vertical */
+    font-size: 1em; /* Tamaño de fuente */
+    margin: 0.25em 0; /* Espaciado vertical */
 }
 
 /* Especificidad 002 */
 article img {
-    width: 50px; /* Ancho de la imagen */
+    width: 20%; /* Ancho de la imagen */
     height: auto; /* Altura automática */
     display: block; /* Mostrar como bloque */
-    margin: 0.5rem auto; /* Centrar imagen */
+    margin: 0.5em auto; /* Centrar imagen */
 }
 
 /* ###################### Media Queries ###################### */
@@ -42,24 +42,11 @@ article img {
         align-items: center; /* Alinear elementos verticalmente */
         justify-content: space-between; /* Espacio entre elementos */
     }
+}
 
-    /* Especificidad 006 */
-    article h2, article p, article img {
-        margin: 0; /* Eliminar márgenes */
-    }
-
-    /* Especificidad 002 */
-    article h2 {
-        flex: 1; /* Flexibilidad */
-    }
-
-    /* Especificidad 002 */
-    article p {
-        flex: 2; /* Flexibilidad */
-    }
-
-    /* Especificidad 002 */
-    article img {
-        flex: 0; /* Sin flexibilidad */
+@media (max-width: 767px) {
+    /* Especificidad 001 */
+    article {
+        margin: 1rem 1rem; /* Separación entre el límite de la pantalla y el contenedor */
     }
 }
