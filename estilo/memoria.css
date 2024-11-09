@@ -121,8 +121,24 @@ dialog::backdrop {
     font-size: 16px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    #cards-container {
+        max-width: 100%;
+        gap: 0.5rem;
+    }
+
+    article {
+        width: 40%; /* Ajustar el ancho relativo */
+    }
+
+    article h2 {
+        font-size: 0.75rem; /* Ajustar tamaño de fuente relativo */
+    }
+}
+
+/* Para tablets (ancho mínimo 481px y máximo 1200px) */
+@media (min-width: 481px) and (max-width: 1200px) {
     #cards-container {
         max-width: 80%;
     }
@@ -136,17 +152,17 @@ dialog::backdrop {
     }
 }
 
-@media (max-width: 480px) {
+/* Para pantallas medianas (ancho máximo 768px) */
+@media (max-width: 768px) {
     #cards-container {
-        max-width: 100%;
-        gap: 0.5rem;
+        max-width: 80%;
     }
 
     article {
-        width: 40%; /* Ajustar el ancho relativo */
+        width: 25%; /* Ajustar el ancho relativo */
     }
 
     article h2 {
-        font-size: 0.75rem; /* Ajustar tamaño de fuente relativo */
+        font-size: 0.875rem; /* Ajustar tamaño de fuente relativo */
     }
 }

@@ -147,35 +147,95 @@ main.unload .light {
 }
 
 
-/* Responsive Design */
-@media (max-width: 1200px) {
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
     main {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 0.5em;
+    }
+
+    main > h2 {
+        font-size: 1.25em;
+    }
+
+    #semaforo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .light {
+        width: 50px;
+        height: 50px;
+        margin: 0.5em 0;
+    }
+
+    #startButton, #reactionButton {
+        width: 100%;
+        margin: 0.5em 0;
     }
 }
 
-@media (max-width: 992px) {
+/* Para tablets (ancho mínimo 481px y máximo 1200px) */
+@media (min-width: 481px) and (max-width: 1200px) {
     main {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        margin: 0;
+    }
+
+    main > h2 {
+        font-size: 1.5em;
+    }
+
+    #semaforo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap; /* Permitir que los enlaces se coloquen en varias líneas */
+    }
+
+    .light {
+        align-items: top;
+        width: 10%;
+        height: auto;
+        margin-left: 0.8em;
+        margin-right: 0.8em;
+        flex: 1 1 auto; /* Permitir que los enlaces se ajusten al espacio disponible */
+    }
+
+    #startButton, #reactionButton {
+        width: 100%;
+        margin: 0.5em 0;
     }
 }
 
+/* Para pantallas medianas (ancho máximo 768px) */
 @media (max-width: 768px) {
     main {
         grid-template-columns: 1fr;
+        max-width: 90%;
+        padding: 1em;
     }
-    
-    main>h2 {
-        font-size: 1.2em;
-    }
-}
 
-@media (max-width: 576px) {
-    main {
-        padding: 0.5em;
+    main > h2 {
+        font-size: 1.25em;
     }
-    
-    main>h2 {
-        font-size: 1em;
+
+    #semaforo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .light {
+        width: 20%;
+        height: 20%;
+        margin: 0.5em 0;
+    }
+
+    #startButton, #reactionButton {
+        width: 100%;
+        margin: 0.5em 0;
     }
 }
