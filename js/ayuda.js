@@ -60,7 +60,6 @@ class HelpHandler {
 
     getHelp() {
         return `
-            <h2>Bienvenido a la ayuda web de F1Destkop</h2>
             <section>
                 <h3>¿Cómo funciona?</h3>
                 <p>Para obtener ayuda en cualquier momento, presiona la tecla F1 o 

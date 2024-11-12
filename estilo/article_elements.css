@@ -1,52 +1,154 @@
-/* Estilos para la previsión del tiempo */
-/* Author: Adrian Martinez Fuentes - UO295454 */
 
-/* ###################### General ###################### */
-/* Especificidad 001 */
 article {
-    background-color: #EDD9B0; /* Fondo similar a listas */
-    border: 0.5em solid #1F3B4D; /* Borde azul marino oscuro */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 1em; /* Espaciado interno */
-    margin: 1em 1em; /* Espaciado externo */
-    box-shadow: 0 1em 2em rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2em 2.5em rgba(0, 0, 0, 0.1);
+    margin: 2em 2em;
+    padding: 1em;
+    transition: transform 0.2s;
+    background-color: #FFFFFF;
+    border-radius: 2em;
 }
 
-/* Especificidad 002 */
+article:hover {
+    transform: scale(1.02);
+}
+
+article header {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    background-color: #f4f4f4; /* Fondo más claro */
+    color: #333; /* Color de texto más oscuro */
+    border-bottom: 0.05em solid #ddd;
+    margin-bottom: 0.5em; /* Reduce el margen inferior */
+    padding: 0.5em; /* Ajusta el padding */
+    border-top-left-radius: 2em; /* Bordes redondeados */
+    border-top-right-radius: 2em; /* Bordes redondeados */
+}
+
 article h2 {
-    color: #1F3B4D; /* Color de texto azul marino oscuro */
-    font-size: 1.25em; /* Tamaño de fuente */
-    margin-bottom: 0.5em; /* Espaciado inferior */
+    text-align: center;
+    padding: 0.5em; /* Reduce el padding */
+    font-size: 1.5em; /* Aumenta el tamaño de la fuente */
+    margin: 0; /* Asegura que no haya margen adicional */
 }
 
-/* Especificidad 002 */
 article p {
-    color: #1F3B4D; /* Color de texto azul marino oscuro */
-    font-size: 1em; /* Tamaño de fuente */
-    margin: 0.25em 0; /* Espaciado vertical */
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0.5em 0;
+    padding: 0 1em; /* Alinea el texto con el header */
 }
 
-/* Especificidad 002 */
-article img {
-    width: 20%; /* Ancho de la imagen */
-    height: auto; /* Altura automática */
-    display: block; /* Mostrar como bloque */
-    margin: 0.5em auto; /* Centrar imagen */
+article footer {
+    text-align: right;
+    margin-top: auto;
+    padding: 0.5em;
+    background-color: #f4f4f4; /* Fondo más claro */
+    color: #333; /* Color de texto más oscuro */
+    border-top: 0.05em solid #ddd;
+    border-bottom-left-radius: 2em; /* Bordes redondeados */
+    border-bottom-right-radius: 2em; /* Bordes redondeados */
 }
 
-/* ###################### Media Queries ###################### */
-@media (min-width: 768px) {
-    /* Especificidad 001 */
+article footer p {
+    font-size: 0.9em;
+}
+
+label[for="fileInput"] {
+    display: block;
+    margin: 1em 0 0.5em 0;
+    font-size: 1em;
+    color: #333;
+    margin-left: 1em;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    background-color: #f9f9f9;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 1em;
+}
+
+input[type="file"]:hover {
+    background-color: #e9e9e9;
+}
+
+form.noticia-form {
+    margin: 3em 0;
+    padding: 2em;
+    border: 0.5em solid #ddd;
+    border-radius: 0.5em;
+    background-color: #f9f9f9;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+main h2 {
+    text-align: center;
+    margin-top: 3em;
+    text-decoration: underline;
+}
+
+form.noticia-form input[type="text"],
+form.noticia-form textarea {
+    width: calc(100% - 22px);
+    padding: 1em;
+    margin: 0.5em 0;
+    border: 0.25em solid #ddd;
+    border-radius: 0.5em;
+}
+
+form.noticia-form button {
+    background-color: #1F3B4D;
+    color: #fff;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Media queries para mejorar la responsividad */
+@media (max-width: 768px) {
     article {
-        display: flex; /* Disposición en fila */
-        align-items: center; /* Alinear elementos verticalmente */
-        justify-content: space-between; /* Espacio entre elementos */
+        padding: 0.8em;
+    }
+
+    article h2 {
+        font-size: 1.3em;
+    }
+
+    article p {
+        font-size: 0.9em;
+    }
+
+    article footer p {
+        font-size: 0.8em;
     }
 }
 
-@media (max-width: 767px) {
-    /* Especificidad 001 */
+@media (max-width: 480px) {
     article {
-        margin: 1rem 1rem; /* Separación entre el límite de la pantalla y el contenedor */
+        padding: 0.6em;
+    }
+
+    article h2 {
+        font-size: 1.2em;
+    }
+
+    article p {
+        font-size: 0.8em;
+    }
+
+    article footer p {
+        font-size: 0.7em;
     }
 }

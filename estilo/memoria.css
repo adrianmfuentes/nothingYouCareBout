@@ -1,39 +1,34 @@
 /* Author: Adrian Martinez Fuentes - UO295454 */
 
-/* ###################### General ###################### */
-
 /* Especificidad 100 */
 #memory-game {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    margin-top: 2rem;
-}
-
-/* Especificidad 010 */
-#cards-container {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    justify-content: center; 
-    gap: 1rem; 
-    max-width: 60%; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Siempre 4 columnas */
+    gap: 1rem; /* Aumenta el espacio entre cartas para mejor separación */
+    width: 100%;
+    max-width: 960px; /* Ancho máximo para que no se expanda demasiado */
+    margin: 2rem auto; /* Centra horizontalmente y ajusta el espacio vertical */
+    align-items: center;
+    justify-content: center;
 }
 
 /* Especificidad 002 */
 section > h2 {
     text-align: center; 
+    grid-column: span 4;
     margin-bottom: 1em; 
+    text-decoration: underline;
 }
 
 /* Especificidad 001 */
 article {
-    width: 17%; 
-    height: auto; 
+    width: 100%; /* Ocupa toda la columna de grid */
     aspect-ratio: 3/5; 
-    margin: 1em; 
-    border: 0.5em solid #000; 
+    margin: 0.5em; /* Menor margen para mejorar el uso del espacio */
+    border: 0.25em solid #000; /* Ajusta el ancho del borde */
+    box-sizing: border-box; /* Incluye el borde en el tamaño total */
     display: flex;
+    flex-direction: column;
     align-items: center; 
     justify-content: center; 
     position: relative; 
@@ -43,60 +38,67 @@ article {
     transition: transform 0.5s;
 }
 
-/* Especificidad 004 */
-article h2, article img {
-    backface-visibility: hidden; 
-    position: relative; 
-    top: 0;
-    left: 0;
+/* Especificidad 002 */
+article header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
 }
 
-/* Especificidad 002 */
-article h2 {
-    margin-left: 0.2em;
-    margin-right: 0.2em;
+/* Especificidad 003 */
+article header h2 {
+    margin: 0 0.2em;
     text-decoration: none;
     color: #000000;
     text-align: center; 
     backface-visibility: hidden; 
 }
 
+/* Especificidad 005 */
+article header h2, article img {
+    backface-visibility: hidden; 
+    position: absolute; 
+}
+
 /* Especificidad 002 */
 article img {
     width: 80%; 
     height: auto; 
-    justify-content: center;
+    align-self: center; 
     transform: rotateY(180deg); 
 }
 
-/* Especificidad 001 */
+/* Especificidad 010 */
 [data-state="revealed"] {
     transform: rotateY(180deg);
 }
 
-/* Especificidad 002 */
+/* Especificidad 011 */
 [data-state="hidden"] img {
     display: none; 
 }
 
-/* Especificidad 002 */
-[data-state="hidden"] h2 {
+/* Especificidad 012 */
+[data-state="hidden"] header h2 {
     display: block; 
 }
 
-/* Especificidad 002 */
+/* Especificidad 010 */
 [data-state="revealed"] img {
     display: block; 
 }
 
-/* Especificidad 002 */
-[data-state="revealed"] h2 {
+/* Especificidad 012 */
+[data-state="revealed"] header h2 {
     display: none; 
 }
 
 /* Especificidad 001 */
 dialog {
     width: 100%;
+    max-width: 500px; /* Controla el ancho en pantallas grandes */
     padding: 1em;
     border: none;
     border-radius: 8px;
@@ -121,48 +123,55 @@ dialog::backdrop {
     font-size: 16px;
 }
 
+/* Media Queries */
+
 /* Para pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
-    #cards-container {
-        max-width: 100%;
-        gap: 0.5rem;
+    #memory-game {
+        gap: 0.1em;
+        margin-left: 0.7em;
     }
 
     article {
-        width: 40%; /* Ajustar el ancho relativo */
+        width: 60%;
+        margin: 0.25em; /* Reduce el margen */
+        border-width: 0.2em; /* Reduce el borde */
     }
 
-    article h2 {
-        font-size: 0.75rem; /* Ajustar tamaño de fuente relativo */
+    article header h2 {
+        font-size: 0.75em; /* Ajusta el tamaño de fuente */
+    }
+
+    section > h2 {
+        font-size: 1.05em; /* Ajusta el tamaño de fuente */
     }
 }
 
-/* Para tablets (ancho mínimo 481px y máximo 1200px) */
-@media (min-width: 481px) and (max-width: 1200px) {
-    #cards-container {
-        max-width: 80%;
+/* Para tablets y pantallas medianas */
+@media (min-width: 481px) and (max-width: 1024px) {
+    #memory-game {
+        gap: 1rem;
+        width: 90%; /* Ajusta el ancho */
+        margin: 1.5rem auto;
     }
 
     article {
-        width: 25%; /* Ajustar el ancho relativo */
+        margin: 0.75em; /* Ajusta el margen */
     }
 
-    article h2 {
-        font-size: 0.875rem; /* Ajustar tamaño de fuente relativo */
+    section > h2 {
+        font-size: 1.5rem; /* Ajusta el tamaño de fuente */
     }
 }
 
-/* Para pantallas medianas (ancho máximo 768px) */
-@media (max-width: 768px) {
-    #cards-container {
-        max-width: 80%;
+/* Para pantallas grandes */
+@media (min-width: 1025px) {
+    #memory-game {
+        width: 80%; /* Reduce el ancho en pantallas grandes */
+        margin: 2rem auto;
     }
 
-    article {
-        width: 25%; /* Ajustar el ancho relativo */
-    }
-
-    article h2 {
-        font-size: 0.875rem; /* Ajustar tamaño de fuente relativo */
+    section > h2 {
+        font-size: 2rem; /* Tamaño de fuente más grande */
     }
 }

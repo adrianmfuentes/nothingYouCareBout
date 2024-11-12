@@ -16,10 +16,21 @@
         <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
         <link rel="stylesheet" type="text/css" href="estilo/footer.css" />
+        
+        <!-- Añadir referencia al archivo de estilos de la página de noticias -->
+        <link rel="stylesheet" type="text/css" href="estilo/article_elements.css" />
+
+        <!-- Añadir referencia a la fuente Rock Salt -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
 
         <!-- Añadir referencia al archivo ayuda.js -->
-        <script src="js/ayuda.js" type="text/javascript"></script>
+        <script src="js/ayuda.js"></script>
+
+        <!-- Añadir referencia a jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+        <!-- Añadir referencia al archivo noticias.js -->
+        <script src="js/noticias.js"></script>
     </head>
 
     <body>
@@ -40,18 +51,40 @@
 
         <p>Estas en Inicio >> Noticias<p>
 
-        <!-- Botón para abrir la ayuda -->
-        <dialog id="help-popup">
-            <h2>Ayuda</h2>
-            <section id="help-content">
-                <!-- El contenido de la ayuda se cargará aquí dinámicamente -->
-            </section>
-            <button id="close-help">Cerrar</button>
-        </dialog>
-
         <main>
-            <h2>Noticias</h2>
-            <p>En desarrollo</p>
+            <!-- Sección para mostrar las noticias -->
+            <label for="fileInput">Selecciona una imagen para subir:</label>
+            <input type="file" id="fileInput">
+
+            <!-- Visualización de las noticias -->
+            <section id="noticias">
+                <h2>Últimas noticias</h2>
+            </section>
+
+            <!-- Sección para añadir una noticia -->
+            <h2>Añadir Noticia</h2>
+
+            <!-- Formulario para añadir una noticia -->
+            <form class="noticia-form">
+                <!-- Añadir el titular de la noticia -->
+                <label for="titular">Titular:</label>
+                <input type="text" id="titular" placeholder="Titular">
+
+                <!-- Añadir la entradilla de la noticia -->
+                <label for="entradilla">Entradilla:</label>
+                <input type="text" id="entradilla" placeholder="Entradilla">
+
+                <!-- Añadir el autor de la noticia -->
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" placeholder="Autor">
+
+                <!-- Añadir el contenido de la noticia -->
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" placeholder="Contenido"></textarea>
+
+                <!-- Botón para añadir la noticia -->
+                <button type="submit">Añadir Noticia</button>
+            </form>
         </main>
 
         <!-- Pie de página -->
@@ -65,7 +98,9 @@
         <!-- Popup de ayuda -->
         <dialog id="help-popup">
             <!-- El contenido de la ayuda se cargará aquí dinámicamente -->
-            <section id="help-content"></section>
+            <section id="help-content">
+                <h2>Bienvenido a la ayuda web de F1Destkop</h2>
+            </section>
         </dialog> 
 
         <!-- Script para cargar la información de la ayuda -->
@@ -75,7 +110,12 @@
                     const help = new HelpHandler();
                     document.querySelector("#help-content").innerHTML = help.getHelp();
                 }
-    
+
+                function noticia() {
+                    const noticias = new Noticias();
+                }
+                
+                noticia();
                 loadHelp();
             });
         </script>

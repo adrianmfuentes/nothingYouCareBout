@@ -8,7 +8,6 @@
 */ 
 
 
-/* ###################### General ###################### */
 /* Especificidad 001 */
 html {
     font-family: "helvetica neue", helvetica, arial, sans-serif;
@@ -46,10 +45,10 @@ body > p {
 /* Especificidad 002 */
 h1 a {
     color: #FFFFFF;
-    text-decoration: none;
-    padding: 0.5rem 1rem; /* Añadir padding para aumentar el área táctil */
-    font-size: 1.5rem; /* Añadir tamaño de fuente para aumentar el área táctil */
     /*background-color heredado de header*/
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;     
 }
 
 nav {
@@ -62,21 +61,17 @@ nav {
 nav a {
     text-decoration: none;
     color: #FFFFFF;
+    /*background-color heredado de header*/
     padding: 1rem 1.5rem;
     margin-bottom: 0.5rem; /* Aumentar el espacio entre los enlaces */
-    /*background-color heredado de header*/
 }
 
 /* Especificidad 011 */
 a:hover {
-    text-decoration: bold;
     border: 2px solid #A9C4D4; /* Color de borde */
-    border-radius: 8px; /* Bordes redondos */
-    /*background-color heredado de header*/
 }
 
 .active{ 
-    text-decoration: bold;
     border: 2px solid #A9C4D4; /* Color de borde */
     border-radius: 8px; /* Bordes redondos */
     /*background-color heredado de header*/
@@ -106,9 +101,9 @@ ul, ol, dl, p {
 /* Especificidad 002 */
 ul, ol {
     background-color: #EDD9B0; 
+    /*color heredado de body*/
     list-style-position: inside;
     margin: 0.313rem 0.625rem 0.625rem 0.625rem;
-    /*color heredado de body*/
 }
 
 /* Especificidad 001 */
@@ -146,7 +141,6 @@ dd {
 
 /* ###################### Estilizacion de la tabla ###################### */
 /* Especificidad 001 */
-/* Especificidad 001 */
 table {
     table-layout: fixed;
     width: 100%;
@@ -155,6 +149,7 @@ table {
     font-family: Arial, sans-serif;
     margin-bottom: 2rem;
     background-color: #fff; /* Fondo blanco para la tabla */
+    /* color heredado de body */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto de elevación */
 }
 
@@ -166,6 +161,7 @@ table caption {
     font-size: 1.5rem;
     text-decoration: underline;
     color: #333;
+    /* background-color heredado de table */
 }
 
 /* Especificidad 011 */
@@ -185,11 +181,13 @@ th {
 /* Especificidad 011 */
 tr:nth-child(even) {
     background-color: #f9f9f9;
+    /* color heredado de body */
 }
 
 /* Especificidad 011 */
 tr:hover {
     background-color: #f1f1f1;
+    /* color heredado de body */
 }
 
 /* Especificidad 011 */
@@ -234,6 +232,7 @@ main>h2 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    /* color heredado de body */
     z-index: 1000;
     resize: both;
     overflow: auto;
@@ -246,6 +245,7 @@ main>h2 {
     margin-bottom: 1em;
     text-align: center;
     color: #333;
+    /* background-color heredado de #help-popup */
 }
 
 /* Especificidad 101 */
@@ -254,6 +254,7 @@ main>h2 {
     margin-top: 1em;
     margin-bottom: 0.5em;
     color: #555;
+    /* background-color heredado de #help-popup */
 }
 
 /* Especificidad 101 */
@@ -261,6 +262,7 @@ main>h2 {
     font-size: 1.2em;
     margin-bottom: 0.5em;
     color: #666;
+    /* background-color heredado de #help-popup */
 }
 
 /* Especificidad 101 */
@@ -274,6 +276,7 @@ main>h2 {
     font-size: 1.2em;
     margin-bottom: 0.5em;
     color: #777;
+    /* background-color heredado de #help-popup */
 }
 
 /* Especificidad 201 */
@@ -293,24 +296,35 @@ main>h2 {
 /* Especificidad 211 */
 #help-popup button#close-help:hover {
     background-color: #163240;
+    /* color heredado de #help-popup button#close-help */
 }
 
 /* Media Queries para adaptabilidad */
 @media (max-width: 768px) {
     #help-popup {
+        /* El validador de CCS da un warning por la redifición de width, 
+        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
         width: 90%;
+        /* El validador de CCS da un warning por la redifición del padding (top, bottom, left, right), 
+        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
         padding: 1em;
     }
 
     #help-popup h2 {
+        /* El validador de CCS da un warning por la redifición del tamaño de la fuente, 
+        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
         font-size: 1.5em;
     }
 
     #help-popup h3 {
+        /* El validador de CCS da un warning por la redifición del tamaño de la fuente, 
+        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
         font-size: 1.3em;
     }
 
     #help-popup p, #help-popup ul li {
+        /* El validador de CCS da un warning por la redifición del tamaño de la fuente, 
+        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
         font-size: 1em;
     }
 }

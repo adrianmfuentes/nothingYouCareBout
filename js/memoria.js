@@ -89,7 +89,7 @@ class Memoria {
     }
 
     createElements() {
-        const container = document.querySelector('#cards-container');
+        const container = document.querySelector('#memory-game');
 
         this.elements.forEach((item) => {
             // Crear un nuevo artículo para cada elemento
@@ -98,8 +98,10 @@ class Memoria {
             article.setAttribute('data-state', 'hidden'); 
 
             // Crear el encabezado y añadirlo al artículo
-            const header = document.createElement('h2');
-            header.textContent = "Memory card"; 
+            const header = document.createElement('header');
+            const h2 = document.createElement('h2');
+            h2.textContent = "Memory card"; 
+            header.appendChild(h2);
             article.appendChild(header);
 
             // Crear la imagen y añadirla al artículo

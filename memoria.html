@@ -21,13 +21,13 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
 
         <!-- Añadir referencia al archivo memoria.js -->
-        <script src="js/memoria.js" type="text/javascript"></script>
+        <script src="js/memoria.js"></script>
 
         <!-- Añadir referencia al archivo memoria-tutorial.js -->
-        <script src="js/memoria-tutorial.js" type="text/javascript"></script>
+        <script src="js/memoria-tutorial.js"></script>
 
         <!-- Añadir referencia al archivo ayuda.js -->
-        <script src="js/ayuda.js" type="text/javascript"></script>
+        <script src="js/ayuda.js"></script>
     </head>
 
     <body>
@@ -48,10 +48,10 @@
 
         <p>Estas en Inicio >> Juegos >> Memoria</p>
 
-        <menu>
+        <nav>
             <a class="active" href="memoria.html">Juego de memoria</a>  
             <a href="semaforo.html">Juego de reacción</a>                
-        </menu>
+        </nav>
         
         <main>
             <!-- Botón para abrir el tutorial -->
@@ -68,7 +68,8 @@
 
             <!-- Contenedor del juego -->
             <section id="memory-game">
-                <section id="cards-container"></section>
+                <h2>Juego de memoria</h2>
+                <!-- Tablero de juego -->
             </section>
 
             <!-- Popup de victoria -->
@@ -89,7 +90,9 @@
         <!-- Popup de ayuda -->
         <dialog id="help-popup">
             <!-- Contenido de la ayuda -->
-            <section id="help-content"></section>
+            <section id="help-content">
+                <h2>Bienvenido a la ayuda web de F1Destkop</h2>
+            </section>
         </dialog> 
 
         <!-- Script para cargar el juego y la ayuda -->
