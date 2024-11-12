@@ -1,7 +1,26 @@
 /* Author: Adrian Martinez Fuentes - UO295454 */
 
+/* Espesificidad 001 */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.em;
+}
+
+/* Especificidad: 002 */
+main h2, h3 {
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 2.5em;
+}
+
+main h3 {
+    font-size: 1.5em;
+}
+
 /* Espesificidad 100 */
-#show-races {
+button {
     padding: 1.5em 2.5em;
     font-size: 1em;
     margin-bottom: 3em;
@@ -14,57 +33,112 @@
 }
 
 /* Espesificidad 110 */
-#show-races:hover {
+button:hover {
     background-color: #e64a19;
 }
 
-/* Espesificidad 001 */
-main {
+/* Especificidad: 0,0,1 */
+article {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 3.em;
+    box-shadow: 0 2em 2.5em rgba(0, 0, 0, 0.1);
+    margin: 2em 2em;
+    padding: 1em;
+    transition: transform 0.2s;
+    background-color: #FFFFFF;
+    border-radius: 2em;
 }
 
-/* Espesificidad 100 */
-#show-races {
-    cursor: pointer;
+/* Especificidad: 0,0,2 */
+article:hover {
+    transform: scale(1.02);
 }
 
-/* Espesificidad 100 */
-#race-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3em;
-    width: 80%;
-    max-width: 100%;
-}
-
-/* Espesificidad 010 */
-.race {
-    background-color: #f1f1f1;
-    padding: 2em;
-    border-radius: 1.5em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Especificidad: 0,0,2 */
+article header {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+    border-bottom: 0.05em solid #ddd;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
 }
 
-/* Espesificidad 011 */
-.race h3 {
-    margin: 0 0 1.5em 0;
+/* Especificidad: 0,0,2 */
+article h2 {
+    font-size: 1.5em;
+    margin: 0;
 }
 
-/* Espesificidad 011 */
-.race p {
-    margin: 1.25em 0;
+/* Especificidad: 0,0,2 */
+article p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0.5em 0;
+    padding: 0 1em;
 }
 
-/* Responsive adjustments */
+/* Especificidad: 0,0,2 */
+article footer {
+    text-align: right;
+    margin-top: auto;
+    padding: 0.5em;
+    background-color: #f4f4f4;
+    color: #333;
+    border-top: 0.05em solid #ddd;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+/* Especificidad: 0,0,3 */
+article footer p {
+    font-size: 0.9em;
+}
+
 @media (max-width: 768px) {
-    #race-container {
-        grid-template-columns: 1fr;
+    /* Especificidad: 0,0,1 */
+    article {
+        padding: 0.8em;
+    }
+
+    /* Especificidad: 0,0,2 */
+    article h2 {
+        font-size: 1.3em;
+    }
+
+    /* Especificidad: 0,0,2 */
+    article p {
+        font-size: 0.9em;
+    }
+
+    /* Especificidad: 0,0,3 */
+    article footer p {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Especificidad: 0,0,1 */
+    article {
+        padding: 0.5em;
+    }
+
+    /* Especificidad: 0,0,2 */
+    article h2 {
+        font-size: 1.2em;
+    }
+
+    /* Especificidad: 0,0,2 */
+    article p {
+        font-size: 0.8em;
+    }
+
+    /* Especificidad: 0,0,3 */
+    article footer p {
+        font-size: 0.7em;
     }
 }

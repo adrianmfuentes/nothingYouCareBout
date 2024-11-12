@@ -53,8 +53,10 @@
 
         <main>
             <!-- Sección para mostrar las noticias -->
-            <label for="fileInput">Selecciona una imagen para subir:</label>
-            <input type="file" id="fileInput">
+            <form class="noticia-form">
+                <label for="fileInput">Selecciona una imagen para subir:</label>
+                <input type="file" id="fileInput">
+            </form>
 
             <!-- Visualización de las noticias -->
             <section id="noticias">
@@ -65,7 +67,7 @@
             <h2>Añadir Noticia</h2>
 
             <!-- Formulario para añadir una noticia -->
-            <form class="noticia-form">
+            <form class="noticia-form" id="noticiaForm">
                 <!-- Añadir el titular de la noticia -->
                 <label for="titular">Titular:</label>
                 <input type="text" id="titular" placeholder="Titular">
@@ -110,12 +112,8 @@
                     const help = new HelpHandler();
                     document.querySelector("#help-content").innerHTML = help.getHelp();
                 }
-
-                function noticia() {
-                    const noticias = new Noticias();
-                }
                 
-                noticia();
+                new Noticias();
                 loadHelp();
             });
         </script>

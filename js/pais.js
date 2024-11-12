@@ -142,7 +142,9 @@ class Pais {
                     const previs = previsionesPorDia[date];
     
                     const article = $('<article></article>');
-                    article.append(`<h2>${previs.date}</h2>`);
+                    const header = $('<header></header>');
+                    header.append(`<h2>${previs.date}</h2>`);
+                    article.append(header);
                     article.append(`<p>Temperatura Máxima: ${previs.tempMax}°C</p>`);
                     article.append(`<p>Temperatura Mínima: ${previs.tempMin}°C</p>`);
                     article.append(`<p>Humedad: ${previs.humidity}%</p>`);

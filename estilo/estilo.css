@@ -328,3 +328,190 @@ main>h2 {
         font-size: 1em;
     }
 }
+
+
+/* ###################### JUEGO TRIVIAL F1 (API.HTML) ###################### */
+
+/* Especificidad 010 */
+.welcome-screen {
+    display: grid;
+    grid-template-rows: auto auto; /* Dos filas: una para el h2 y otra para los botones */
+    justify-items: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    text-align: center;
+    gap: 1rem; /* Espacio entre las filas */
+    margin: 2em;
+}
+
+/* Especificidad 011 */
+.welcome-screen h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    grid-row: 1; /* Coloca el h2 en la primera fila */
+}
+
+/* Especificidad 011 */
+.welcome-screen button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem; 
+    background-color: #1F3B4D;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    grid-row: 2; /* Coloca los botones en la segunda fila */
+}
+
+/* Especificidad 01'1' */
+.score-container {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #1F3B4D;
+}
+
+/* Especificidad 010 */
+.question-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    margin: 2rem auto; 
+    text-align: center; 
+    font-size: 1.5rem;
+    color: #1F3B4D;
+}
+
+/* Especificidad 010 */
+.options-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    margin: 2rem auto; 
+    text-align: center;
+    width: 100%;
+    margin: 2em 0;
+}
+
+/* Especificidad 011 */
+.options-container button {
+    width: 80%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    background-color: #1F3B4D;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Especificidad 021 */
+.options-container button:hover {
+    background-color: #163240;
+}
+
+
+/* Especificidad 021 */
+.options-container button.correct {
+    background-color: #4CAF50;
+}
+
+/* Especificidad 021 */
+.options-container button.incorrect {
+    background-color: #F44336; 
+}
+
+/* Especificidad 010 */
+.final-score-container {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    color: #1F3B4D;
+}
+
+/* Especificidad 100 */
+#score-dialog {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #1F3B4D;
+    border: none;
+    border-radius: 1em;
+    padding: 2em;
+    box-shadow: 0 0.25em 0.4em rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 50%;
+    margin: auto;
+}
+
+/* Especificidad 110 */
+#score-dialog.show {
+    display: flex; 
+    flex-direction: column; /* Alinea los elementos en columna */
+}
+
+/* Especificidad 101 */
+#score-dialog h2 {
+    margin-bottom: 1em;
+}
+
+/* Especificidad 101 */
+#score-dialog p {
+    margin: 0.5em 0;
+}
+
+/* Especificidad 220 */
+#score-dialog .final-score, 
+#score-dialog .high-score {
+    font-weight: bold;
+}
+
+/* Especificidad 001 */
+dialog {
+    width: 100%;
+    max-width: 31.25em; /* Controla el ancho en pantallas grandes */
+    padding: 1em;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Especificidad 002 */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+/* Especificidad 100 */
+#tutorial-button {
+    margin-left: 5em;
+    padding: 10px 20px;
+    background-color: #1F3B4D;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Media Queries para adaptabilidad */
+@media (max-width: 768px) {
+
+    #start-button {
+        font-size: 1.2em;
+        padding: 0.8em 1.5em;
+    }
+
+    .options-container button {
+        font-size: 1em;
+        padding: 0.8em;
+    }
+}

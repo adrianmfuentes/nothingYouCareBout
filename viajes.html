@@ -18,6 +18,12 @@
         <link rel="stylesheet" type="text/css" href="estilo/footer.css" />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
 
+        <!-- Añadir referencia al archivo viajes.js -->
+        <script src="js/viajes.js"></script>
+
+        <!-- Añadir referencia al archivo google-maps.js -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
         <!-- Añadir referencia al archivo ayuda.js -->
         <script src="js/ayuda.js"></script>
     </head>
@@ -41,8 +47,8 @@
         <p>Estas en Inicio >> Viajes<p>
 
         <main>
-            <h2>Este es el viajes.html de la web</h2>
-            <p>En desarrollo</p>
+            <h2>Mapa de viajes</h2>
+            <div id="map"></div>
         </main>
 
         <!-- Pie de página -->
@@ -64,11 +70,16 @@
         <!-- Script para cargar la ayuda -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+                function loadViajes() {
+                    const viajes = new Viajes();
+                }
+                
                 function loadHelp() {
                     const help = new HelpHandler();
                     document.querySelector("#help-content").innerHTML = help.getHelp();
                 }
     
+                loadViajes();
                 loadHelp();
             });
         </script>

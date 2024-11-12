@@ -98,7 +98,7 @@ article img {
 /* Especificidad 001 */
 dialog {
     width: 100%;
-    max-width: 500px; /* Controla el ancho en pantallas grandes */
+    max-width: 31.25em; /* Controla el ancho en pantallas grandes */
     padding: 1em;
     border: none;
     border-radius: 8px;

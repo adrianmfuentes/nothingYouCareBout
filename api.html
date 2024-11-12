@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="author" content="Adrián Martínez" />
@@ -19,10 +19,12 @@
         <link rel="stylesheet" type="text/css" href="estilo/footer.css" />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
 
+        <!-- Añadir referencia al archivo api.js -->
+        <script src="js/api.js"></script>
+
         <!-- Añadir referencia al archivo ayuda.js -->
         <script src="js/ayuda.js"></script>
     </head>
-
     <body>
         <header>
             <h1><a href="index.html">F1 Desktop</a></h1>
@@ -39,17 +41,36 @@
             </nav>
         </header>
 
-        <p>Estas en Inicio >> Juegos</p>
+        <p>Estas en Inicio >> Juegos >> Trivial F1</p>
+
+        <nav>
+            <a href="memoria.html">Juego de memoria</a>  
+            <a href="semaforo.html">Juego de reacción</a>                
+            <a class="active" href="api.html">Trivial F1</a>  
+        </nav>
+        
 
         <main>
-            <h2>¡Bienvenido a los juegos de la F1!</h2>
-            <nav>
-                <a href="memoria.html">Juego de memoria</a>
-                <a href="semaforo.html">Juego de reacción</a>
-                <a href="api.html">Trivial F1</a>
-            </nav>
-        </main>
+            <!-- Botón para abrir el tutorial -->
+            <button id="tutorial-button">Tutorial</button>
 
+            <!-- Popup de tutorial -->
+            <dialog id="tutorial-popup">
+                <h2>¿Cómo jugar?</h2>
+                <p>El objetivo del juego es responder correctamente a las preguntas sobre la Fórmula 1.
+                    Cada pregunta tiene cuatro respuestas posibles, de las cuales solo una es correcta.
+                    Para responder, selecciona la respuesta que consideres correcta. Si aciertas, 
+                    sumarás un punto a tu marcador. Si fallas, no sumarás puntos.¡Buena suerte!</p>
+                <button id="close-tutorial">Cerrar</button>
+            </dialog>
+
+            <!-- Pantalla de bienvenida con botón de inicio -->
+            <section class="welcome-screen">
+                <h2>Trivial F1</h2>
+                <button id="start-button">Iniciar Juego</button>
+            </section>
+        </main>
+        
         <!-- Pie de página -->
         <footer id="main-footer">
             <!-- Botón para abrir el popup de ayuda -->
@@ -74,8 +95,23 @@
                     document.querySelector("#help-content").innerHTML = help.getHelp();
                 }
     
+                new Api();
                 loadHelp();
-            });
+
+                // Abrir el tutorial
+                const tutorialButton = document.getElementById('tutorial-button');
+                const tutorialPopup = document.getElementById('tutorial-popup');
+                const closeTutorial = document.getElementById('close-tutorial');
+
+                tutorialButton.addEventListener('click', () => {
+                    tutorialPopup.showModal();
+                });
+
+                // Cerrar el tutorial
+                closeTutorial.addEventListener('click', () => {
+                    tutorialPopup.close();
+                });
+                });
         </script>
     </body>
 </html>

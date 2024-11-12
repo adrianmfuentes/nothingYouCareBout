@@ -42,7 +42,30 @@
 
         <main>
             <h2>Circuitos</h2>
-            <p>En desarrollo</p>
+            
+            <!-- Subir y procesar un archivo XML -->
+            <h3>Subir archivo XML</h3>
+            <input type="file" id="xmlFileInput" accept=".xml">
+            <section class="xmlContent">
+                <h3>Contenido del archivo XML</h3>
+                <!-- Aquí se mostrará el contenido del archivo XML -->
+            </section>
+
+            <!-- Subir y procesar un archivo KML -->
+            <h3>Subir archivo KML</h3>
+            <input type="file" id="kmlFileInput" accept=".kml">
+            <section class="kmlContent">
+                <h3>Contenido del archivo KML</h3>
+                <!-- Aquí se mostrará el contenido del archivo KML -->
+            </section>
+
+            <!-- Subir y procesar un archivo SVG -->
+            <h3>Subir archivo SVG</h3>
+            <input type="file" id="svgFileInput" accept=".svg">
+            <section class="svgContent">
+                <h3>Contenido del archivo SVG</h3>
+                <!-- Aquí se mostrará el contenido del archivo SVG -->
+            </section>
         </main>
 
         <!-- Pie de página -->
@@ -70,6 +93,47 @@
                 }
                 
                 loadHelp();
+            });
+        </script>
+
+        <script>
+            // Procesar archivo XML
+            $('#xmlFileInput').on('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const xmlContent = e.target.result;
+                        $('.xmlContent').text(xmlContent);
+                    };
+                    reader.readAsText(file);
+                }
+            });
+
+            // Procesar archivo KML
+            $('#kmlFileInput').on('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const kmlContent = e.target.result;
+                        $('.kmlContent').html(kmlContent);
+                    };
+                    reader.readAsText(file);
+                }
+            });
+
+            // Procesar archivo SVG
+            $('#svgFileInput').on('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const svgContent = e.target.result;
+                        $('.svgContent').html(svgContent);
+                    };
+                    reader.readAsText(file);
+                }
             });
         </script>
     </body>
