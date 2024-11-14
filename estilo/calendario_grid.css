@@ -1,47 +1,49 @@
 /* Author: Adrian Martinez Fuentes - UO295454 */
 
-/* Espesificidad 001 */
+/* Especificidad 001 */
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3.em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    justify-items: center;
+    padding: 3em;
 }
 
-/* Especificidad: 002 */
+/* Especificidad 004 */
+main h2, main button {
+    grid-column: 1 / -1;
+}
+
+/* Especificidad: 003 */
 main h2, h3 {
     text-decoration: underline;
     text-align: center;
     margin-top: 2.5em;
 }
 
+/* Especificidad 002 */
 main h3 {
+    grid-column: 1 / -1;
     font-size: 1.5em;
 }
 
-/* Espesificidad 100 */
+/* Especificidad 001 */
 button {
     padding: 1.5em 2.5em;
     font-size: 1em;
     margin-bottom: 3em;
     cursor: pointer;
     background-color: #1F3B4D;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 1.5em;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
-/* Espesificidad 110 */
-button:hover {
-    background-color: #e64a19;
-}
-
-/* Especificidad: 0,0,1 */
-article {
+/* Especificidad 002 */
+main article {
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2em 2.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2em 2.5em #0000001a;
     margin: 2em 2em;
     padding: 1em;
     transition: transform 0.2s;
@@ -49,13 +51,13 @@ article {
     border-radius: 2em;
 }
 
-/* Especificidad: 0,0,2 */
-article:hover {
+/* Especificidad 012 */
+main article:hover {
     transform: scale(1.02);
 }
 
-/* Especificidad: 0,0,2 */
-article header {
+/* Especificidad 003 */
+main article header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,22 +70,22 @@ article header {
     border-top-right-radius: 2em;
 }
 
-/* Especificidad: 0,0,2 */
-article h2 {
+/* Especificidad 003 */
+main article h3 {
     font-size: 1.5em;
     margin: 0;
 }
 
-/* Especificidad: 0,0,2 */
-article p {
+/* Especificidad 003 */
+main article p {
     font-size: 1em;
     line-height: 1.5;
     margin: 0.5em 0;
     padding: 0 1em;
 }
 
-/* Especificidad: 0,0,2 */
-article footer {
+/* Especificidad 003 */
+main article footer {
     text-align: right;
     margin-top: auto;
     padding: 0.5em;
@@ -94,50 +96,74 @@ article footer {
     border-bottom-right-radius: 2em;
 }
 
-/* Especificidad: 0,0,3 */
-article footer p {
+/* Especificidad 004 */
+main article footer p {
     font-size: 0.9em;
 }
 
+/* Especificidad 003 */
+main article img {
+    max-width: 50px;
+    height: auto;
+    margin: 0.5em auto;
+}
+
+@media (max-width: 1200px) {
+    /* Especificidad 001 */
+    main {
+        /* Redefinir el grid-template-columns es necesario para que el grid se ajuste a la pantalla */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    /* Especificidad 001 */
+    main {
+        /* Redefinir el grid-template-columns es necesario para que el grid se ajuste a la pantalla */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
-    /* Especificidad: 0,0,1 */
+    /* Especificidad 001 */
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    /* Especificidad 001 */
     article {
         padding: 0.8em;
     }
 
-    /* Especificidad: 0,0,2 */
-    article h2 {
+    /* Especificidad 002 */
+    article h3 {
         font-size: 1.3em;
     }
 
-    /* Especificidad: 0,0,2 */
+    /* Especificidad 002 */
     article p {
         font-size: 0.9em;
     }
 
-    /* Especificidad: 0,0,3 */
+    /* Especificidad 003 */
     article footer p {
         font-size: 0.8em;
     }
 }
 
 @media (max-width: 480px) {
-    /* Especificidad: 0,0,1 */
     article {
         padding: 0.5em;
     }
 
-    /* Especificidad: 0,0,2 */
-    article h2 {
+    article h3 {
         font-size: 1.2em;
     }
 
-    /* Especificidad: 0,0,2 */
     article p {
         font-size: 0.8em;
     }
 
-    /* Especificidad: 0,0,3 */
     article footer p {
         font-size: 0.7em;
     }

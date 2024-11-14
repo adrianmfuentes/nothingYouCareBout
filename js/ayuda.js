@@ -13,31 +13,23 @@ class HelpHandler {
             }
         });
 
-        // Detectar el clic en el botón de ayuda
-        const openHelpButton = document.getElementById("open-help");
+        // Detectar el clic en el botón de ayuda 
+        const openHelpButton = document.querySelector("footer button");
         if (openHelpButton) {
             openHelpButton.addEventListener("click", () => {
                 this.showHelpPopup();
             });
         }
-
-        // Detectar el clic en el botón de cerrar
-        const closeHelpButton = document.getElementById("close-help");
-        if (closeHelpButton) {
-            closeHelpButton.addEventListener("click", () => {
-                this.closeHelpPopup();
-            });
-        }
     }
 
-    // Función para mostrar el popup de ayuda
+    // Función para mostrar el popup de ayuda sin ID
     showHelpPopup() {
-        const helpPopup = document.getElementById("help-popup");
+        const helpPopup = document.querySelector("dialog");
         helpPopup.innerHTML = this.getHelp(); // Inserta el contenido de ayuda
         helpPopup.scrollTop = 0; // Asegura el desplazamiento en la parte superior
 
-        // Re-agregar el listener al botón de cerrar después de que el contenido ha sido insertado
-        const closeHelpButton = document.getElementById("close-help");
+        // Re-agregar el listener al botón de cerrar tras insertar contenido
+        const closeHelpButton = helpPopup.querySelector("button");
         if (closeHelpButton) {
             closeHelpButton.addEventListener("click", () => {
                 this.closeHelpPopup();
@@ -54,7 +46,7 @@ class HelpHandler {
 
     // Función para cerrar el popup de ayuda
     closeHelpPopup() {
-        const helpPopup = document.getElementById("help-popup");
+        const helpPopup = document.querySelector("dialog");
         helpPopup.close();
     }
 

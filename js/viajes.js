@@ -39,15 +39,31 @@ class Viajes {
     }
 
     showStaticMap() {
+        // Get the static map image
         const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=14&size=400x400&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU`;
-        document.getElementById('staticMap').src = mapUrl;
+        
+        // Create an image element and set its attributes
+        const img = document.createElement('img');
+        img.src = mapUrl;
+        img.alt = 'Static Map';
+        img.setAttribute('data-map', 'static-map');
+        img.id = 'staticMap';
+
+        // Insert the image before the dynamic map and after the h2
+        const main = document.querySelector('main[data-pages="viajes"]');
+        const h2 = main.querySelector('h2');
+        const dynamicMapDiv = main.querySelector('main > div');
+        main.insertBefore(img, dynamicMapDiv);
     }
 
     showDynamicMap() {
-        const map = new google.maps.Map(document.getElementById('dynamicMap'), {
+        // Get the dynamic map div and create a new map
+        const map = new google.maps.Map(document.querySelector('main > div'), {
             center: { lat: this.latitude, lng: this.longitude },
             zoom: 14
         });
+
+        // Create a new marker and set its position
         new google.maps.Marker({
             position: { lat: this.latitude, lng: this.longitude },
             map: map,

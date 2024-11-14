@@ -3,8 +3,8 @@
 <circuito
     xmlns="http://www.uniovi.es"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.uniovi.es circuito.xsd"
->
+    xsi:schemaLocation="http://www.uniovi.es circuito.xsd" >
+    
     <nombre>Zandvoort</nombre>
     <longitud_circuito>4259m</longitud_circuito>
     <anchura_media>11m</anchura_media>

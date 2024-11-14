@@ -19,9 +19,8 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
 
         <!-- Añadir referencia al archivo google-maps.js -->
-        <script async defer 
-            src="https://maps.googleapis.com/maps/api/js?key=&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU"></script>
-
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU"></script>
+        
         <!-- Añadir referencia al archivo viajes.js -->
         <script src="js/viajes.js"></script>
 
@@ -47,24 +46,23 @@
 
         <p>Estas en Inicio >> Viajes<p>
 
-        <main data-pages="viajes">
+        <main data-pages="mapa">
             <h2>Mapas estáticos y dinámicos</h2>
-            <img data-map="static-map" id="staticMap" alt="Mapa Estático">
-            <div id="dynamicMap"></div>
+            <div></div>
         </main>
 
         <!-- Pie de página -->
-        <footer id="main-footer">
+        <footer>
             <!-- Botón para abrir el popup de ayuda -->
-            <button id="open-help" class="help-button">Ayuda</button>
-            <!-- Texto de derechos de autor -->
+            <button>Ayuda</button>
+            <!-- Información del autor -->
             <p>&copy; Adrián Martínez, F1 Desktop</p>
         </footer>
 
         <!-- Popup de ayuda -->
-        <dialog id="help-popup">
+        <dialog>
             <!-- Contenido de la ayuda -->
-            <section id="help-content">
+            <section>
                 <h2>Bienvenido a la ayuda web de F1Destkop</h2>
             </section>
         </dialog> 
@@ -78,7 +76,8 @@
                 
                 function loadHelp() {
                     const help = new HelpHandler();
-                    document.querySelector("#help-content").innerHTML = help.getHelp();
+                    document.querySelector("dialog section")
+                        .innerHTML = help.getHelp();
                 }
     
                 loadViajes();

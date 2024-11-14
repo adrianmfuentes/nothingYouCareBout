@@ -6,6 +6,9 @@ class Noticias {
             alert("La API de File no es soportada en este navegador.");
         }
 
+        // Oculta el h2 de ultimas noticias
+        document.querySelector('#noticias > h2').setAttribute('data-state', 'hidden');
+
         // Asegúrate de que el evento change del input file está siendo manejado
         document.getElementById('fileInput').addEventListener('change', (event) => this.readInputFile(event));
         
@@ -24,10 +27,14 @@ class Noticias {
             const contents = e.target.result;
             this.displayNoticias(contents);
         };
+
         reader.readAsText(file);
     }
 
     displayNoticias(contents) {
+        // Mostrar el h2 de ultimas noticias
+        document.querySelector('#noticias > h2').setAttribute('data-state', 'visible');
+
         const lines = contents.split('\n');
         lines.forEach(line => {
             const [titular, entradilla, autor] = line.split('_');
@@ -48,6 +55,9 @@ class Noticias {
 
     addNoticia(event) {
         event.preventDefault();
+
+        // Mostrar el h2 de ultimas noticias
+        document.querySelector('#noticias > h2').setAttribute('data-state', 'visible');
 
         const titular = document.getElementById('titular').value;
         const entradilla = document.getElementById('entradilla').value;

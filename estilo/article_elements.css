@@ -7,24 +7,25 @@ main h2 {
     margin-top: 2.5em;
 }
 
-/* Especificidad: 0,0,1 */
+/* Especificidad: 001 */
 article {
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2em 2.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2em 2.5em #0000001a;
     margin: 2em 2em;
     padding: 1em;
     transition: transform 0.2s;
     background-color: #FFFFFF;
+    /* color heredado de body */
     border-radius: 2em;
 }
 
-/* Especificidad: 0,0,2 */
+/* Especificidad: 002 */
 article:hover {
     transform: scale(1.02);
 }
 
-/* Especificidad: 0,0,2 */
+/* Especificidad: 002 */
 article header {
     display: flex;
     justify-content: center;
@@ -38,13 +39,13 @@ article header {
     border-top-right-radius: 2em;
 }
 
-/* Especificidad: 0,0,2 */
+/* Especificidad: 002 */
 article h2 {
     font-size: 1.5em;
     margin: 0;
 }
 
-/* Especificidad: 0,0,2 */
+/* Especificidad: 002 */
 article p {
     font-size: 1em;
     line-height: 1.5;
@@ -52,7 +53,7 @@ article p {
     padding: 0 1em;
 }
 
-/* Especificidad: 0,0,2 */
+/* Especificidad: 002 */
 article footer {
     text-align: right;
     margin-top: auto;
@@ -64,12 +65,12 @@ article footer {
     border-bottom-right-radius: 2em;
 }
 
-/* Especificidad: 0,0,3 */
+/* Especificidad: 003 */
 article footer p {
     font-size: 0.9em;
 }
 
-/* Especificidad: 0,0,2 */
+/* Especificidad: 002 */
 article img {
     max-width: 50px;
     height: auto;
@@ -79,21 +80,25 @@ article img {
 @media (max-width: 768px) {
     /* Especificidad: 0,0,1 */
     article {
+        /* Redefinimos el padding para que se ajuste a la pantalla y no se desborde */
         padding: 0.8em;
     }
 
     /* Especificidad: 0,0,2 */
     article h2 {
+        /* Redefinimos el tamaño de la fuente para que se ajuste a la pantalla */
         font-size: 1.3em;
     }
 
     /* Especificidad: 0,0,2 */
     article p {
+        /* Redefinimos el tamaño de la fuente para que se ajuste a la pantalla */
         font-size: 0.9em;
     }
 
     /* Especificidad: 0,0,3 */
     article footer p {
+        /* Redefinimos el tamaño de la fuente para que se ajuste a la pantalla */
         font-size: 0.8em;
     }
 }
@@ -101,21 +106,25 @@ article img {
 @media (max-width: 480px) {
     /* Especificidad: 0,0,1 */
     article {
+        /* Redefinimos el padding para que se ajuste a la pantalla y no se desborde */
         padding: 0.5em;
     }
 
     /* Especificidad: 0,0,2 */
     article h2 {
+        /* Redefinimos el tamaño de la fuente para que se ajuste a la pantalla */
         font-size: 1.2em;
     }
 
     /* Especificidad: 0,0,2 */
     article p {
+        /* Redefinimos el tamaño de la fuente para que se ajuste a la pantalla */
         font-size: 0.8em;
     }
 
     /* Especificidad: 0,0,3 */
     article footer p {
+        /* Redefinimos el tamaño de la fuente para que se ajuste a la pantalla */
         font-size: 0.7em;
     }
 }

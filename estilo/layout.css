@@ -1,17 +1,13 @@
 /* Author: Adrian Martinez Fuentes - UO295454 */
 
 /* ###################### Menu de navegacion ###################### */
-
 /* Especificidad 001 */
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 2rem;
+    padding: 2em;
 }
 
 /* Especificidad 002 */
@@ -19,31 +15,55 @@ header, footer {
     margin: 0.4em;
 }
 
+/* Especificidad 001 */
+nav {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1.5em auto; 
+    width: 80%; 
+    box-sizing: border-box; 
+    border-radius: 0.1em;
+    background-color: #0A1A2E;
+    color: transparent;
+    box-shadow: 0.8em 0.8em 0.8em #b0161626;
+}
+
 /* Especificidad 002 */
 nav a {
-    margin-top: 0rem;
-    margin-right: 1.2rem;
-    margin-bottom: 0rem;
-    margin-left: 1.2rem;
+    text-decoration: none;           
+    color: #FFFFFF;
+    /*background-color heredado de nav */                   
+    font-weight: bold;             
+    padding: 1em 1em;
+    font-size: 1.25em;
+    margin: 0.5em auto;       
+    border-radius: 0.25em;            
+    transition: background-color 0.3s, color 0.3s; 
+    width: auto;
+    text-align: center;
+    max-width: 100%;  
+    border: 0.075em solid #00d9ff;
+}
+
+/* Especificidad 024 */
+nav a:hover, nav a:focus {
+    background-color: #1C3D5A;
+    color: #F0F0F0;
+    outline: none;
 }
 
 /* ###################### Media queries ###################### */
 /* Media query para pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
-    /* Especificidad 001 */
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%; /* Asegurar que el nav ocupe todo el ancho disponible */
-    }
-
     /* Especificidad 002 */
     nav a {
-        margin-bottom: 0.5rem; /* Aumentar el espacio entre los enlaces */
-        width: 100%; /* Asegurar que los enlaces ocupen todo el ancho disponible */
-        text-align: center; /* Centrar el texto de los enlaces */
-        box-sizing: border-box; /* Incluir padding y border en el ancho total */
+        /* Redefinir el margin-bottom es necesario para que el espaciado se adapte a la pantalla */
+        margin-bottom: 0.5rem; 
+        box-sizing: border-box; 
     }
 
     /* Especificidad 001 */
@@ -67,21 +87,11 @@ nav a {
 
 /* Media query para tablets */
 @media (min-width: 481px) and (max-width: 1200px) {
-    /* Especificidad 001 */
-    nav {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 100%; /* Asegurar que el nav ocupe todo el ancho disponible */
-        flex-wrap: wrap; /* Permitir que los enlaces se coloquen en varias líneas */
-    }
-
     /* Especificidad 002 */
     nav a {
-        margin-bottom: 0.5rem; /* Aumentar el espacio entre los enlaces */
-        flex: 1 1 auto; /* Permitir que los enlaces se ajusten al espacio disponible */
-        text-align: center; /* Centrar el texto de los enlaces */
-        box-sizing: border-box; /* Incluir padding y border en el ancho total */
+        /* Redefinir el margin-bottom es necesario para que el espaciado se adapte a la pantalla */
+        margin-bottom: 0.5rem; 
+        flex: 1 1 auto; 
     }
 
     /* Especificidad 002 */
@@ -93,51 +103,13 @@ nav a {
     /* Especificidad 002 */
     main > nav a {
         font-size: 1.1rem; 
+        /* Redefinir padding es necesario para que el espaciado se adapte a la pantalla */
         padding: 1rem 1.75rem; 
     }
 
     /* Especificidad 002 */
     body > p {
+        /* Redeclarar display: none; para que las migas de navegación no se muestren */
         display: none; /* Ocultar las migas de navegación */
     }
-}
-
-/* Especificidad 001 */
-nav {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    margin: 1.4em auto; 
-    width: 90%; 
-    box-sizing: border-box; 
-    border-radius: 0.1em;
-    background-color: #0A1A2E;
-    box-shadow: 0 0 0 #00000026;
-}
-
-
-/* Especificidad 003 */
-nav a {
-    text-decoration: none;           
-    color: #FFFFFF;                   
-    font-weight: bold;             
-    padding: 1em 1em;
-    font-size: 1.25em;
-    margin: 0.5em auto;       
-    border-radius: 0.25em;            
-    transition: background-color 0.3s, color 0.3s; 
-    width: auto;
-    max-width: 90%;  
-    border: 2px solid #FF0000;
-    /*background-color heredado de nav */
-}
-
-/* Especificidad 024 */
-nav a:hover, nav a:focus {
-    background-color: #1C3D5A;
-    color: #F0F0F0;
-    outline: none;
 }

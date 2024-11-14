@@ -5,7 +5,8 @@ main {
     grid-template-rows: auto 1fr auto auto; 
     grid-template-columns: repeat(4, 1fr);  
     gap: 1rem;
-    width: 50%;
+    width: 70%;
+    height: auto;
     max-width: 100%;       
     margin: 0 auto;
     padding: 1em;
@@ -22,7 +23,7 @@ main > section {
     gap: 0.5em;
 }
 
-main > h2, main>section h2 {
+main > h2, main > section h2 {
     text-decoration: none;
     grid-column: 1 / -1; 
     text-align: center;
@@ -33,12 +34,12 @@ main > h2, main>section h2 {
 
 main > section > div {
     aspect-ratio: 1;         
-    width: 100%;           
+    width: 70%;           
     max-width: 60%;         
     border-radius: 50%;     
     background-color: #0007; 
-    border: 0.5em solid #000;  
-    box-shadow: 0 0 0.5em #00000080;
+    border: 0.45em solid #000;  
+    box-shadow: 0 0 1em #00000080;
 }
 
 main > section > div[data-active="true"] {

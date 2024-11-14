@@ -19,7 +19,6 @@ class Semaforo {
         main.appendChild(title);
 
         const semaforoContainer = document.createElement("section");
-        semaforoContainer.id = "semaforo";
         const h2 = document.createElement('h2');
         h2.textContent = "Semáforo"; 
         semaforoContainer.appendChild(h2);
@@ -32,32 +31,40 @@ class Semaforo {
             semaforoContainer.appendChild(light);
         }
 
-        const startButton = document.createElement("button");
-        startButton.id = "startButton";
-        startButton.textContent = "Arranque";
-        startButton.onclick = () => this.initSequence();
-        main.appendChild(startButton);
+        // Botón de inicio
+        this.startButton = document.createElement("button");
+        this.startButton.textContent = "Encendido";
+        this.startButton.onclick = () => this.initSequence();
+        main.appendChild(this.startButton);
 
-        const reactionButton = document.createElement("button");
-        reactionButton.id = "reactionButton";
-        reactionButton.textContent = "Registrar Tiempo de Reacción";
-        reactionButton.onclick = () => this.stopReaction(); 
-        reactionButton.disabled = true;
-        main.appendChild(reactionButton);
+        // Botón para registrar tiempo de reacción
+        this.reactionButton = document.createElement("button");
+        this.reactionButton.textContent = "Registrar Tiempo de Reacción";
+        this.reactionButton.onclick = () => this.stopReaction(); 
+        this.reactionButton.disabled = true;
+        main.appendChild(this.reactionButton);
 
-        const reactionTimeDisplay = document.createElement("p");
-        reactionTimeDisplay.id = "reactionTime";
-        main.appendChild(reactionTimeDisplay);
+        // Mostrar el tiempo de reacción
+        this.reactionTimeDisplay = document.createElement("p");
+        this.reactionTimeDisplay.id = "reactionTime";
+        main.appendChild(this.reactionTimeDisplay);
     }
 
     initSequence() {
         const main = document.querySelector("main");
         main.classList.add("load");  
-        const startButton = document.getElementById("startButton");
-        startButton.disabled = true;  
+        
+        // Deshabilitar el botón de inicio
+        if (this.startButton) {
+            this.startButton.disabled = true;
+        } else {
+            console.error("Start button not found");
+            return;
+        }
 
         let minSeconds, maxSeconds;
 
+        // Determinar el rango de tiempo según la dificultad
         if (this.difficulty === 0.2) {
             minSeconds = 2;
             maxSeconds = 4;
@@ -72,6 +79,7 @@ class Semaforo {
         const randomSeconds = Math.floor(Math.random() * (maxSeconds - minSeconds + 1)) + minSeconds; 
         const timeoutDuration = randomSeconds * 1000;
 
+        // Esperar aleatoriamente para apagar las luces
         setTimeout(() => {
             this.turnOffLights();
         }, timeoutDuration);
@@ -83,8 +91,13 @@ class Semaforo {
         main.classList.add("unload"); 
 
         this.unload_moment = new Date();
-        const reactionButton = document.getElementById("reactionButton");
-        reactionButton.disabled = false;
+
+        // Usar la referencia almacenada para el botón de reacción
+        if (this.reactionButton) {
+            this.reactionButton.disabled = false;
+        } else {
+            console.error("Reaction button not found");
+        }
     }
 
     stopReaction() {
@@ -92,16 +105,20 @@ class Semaforo {
         const reactionTime = this.clic_moment - this.unload_moment; 
         const reactionTimeSeconds = (reactionTime / 1000).toFixed(3); 
 
-        document.getElementById("reactionTime").innerText = 
-            `Tiempo de reacción: ${reactionTimeSeconds} segundos`;
+        // Mostrar el tiempo de reacción
+        this.reactionTimeDisplay.innerText = `Tiempo de reacción: ${reactionTimeSeconds} segundos`;
 
         const main = document.querySelector("main");
         main.classList.remove("load");
         main.classList.remove("unload");
 
-        const reactionButton = document.getElementById("reactionButton");
-        reactionButton.disabled = true; 
-        const startButton = document.getElementById("startButton");
-        startButton.disabled = false; 
+        // Deshabilitar el botón de reacción y habilitar el de inicio
+        if (this.reactionButton) {
+            this.reactionButton.disabled = true;
+        }
+
+        if (this.startButton) {
+            this.startButton.disabled = false;
+        }
     }
 }

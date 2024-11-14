@@ -52,10 +52,10 @@
         
         <main>
             <!-- Botón para abrir el tutorial -->
-            <button id="tutorial-button">Tutorial</button>
+            <button>Tutorial</button>
 
             <!-- Popup de tutorial -->
-            <dialog id="tutorial-popup">
+            <dialog>
                 <h2>¿Cómo jugar?</h2>
                 <p>El objetivo del juego es encontrar todas las parejas de cartas en el menor tiempo posible. 
                     Haz clic en dos cartas para ver sus imágenes; si coinciden, se quedarán reveladas, 
@@ -64,30 +64,30 @@
             </dialog>
 
             <!-- Contenedor del juego -->
-            <section id="memory-game">
+            <section>
                 <h2>Juego de memoria</h2>
                 <!-- Tablero de juego -->
             </section>
 
             <!-- Popup de victoria -->
-            <dialog id="win-popup">
+            <dialog>
                 <h2>¡Felicidades!</h2>
                 <p>Has encontrado todas las parejas.</p>
             </dialog>
         </main>        
 
         <!-- Pie de página -->
-        <footer id="main-footer">
+        <footer>
             <!-- Botón para abrir el popup de ayuda -->
-            <button id="open-help" class="help-button">Ayuda</button>
+            <button>Ayuda</button>
             <!-- Texto de derechos de autor -->
             <p>&copy; Adrián Martínez, F1 Desktop</p>
         </footer>
 
         <!-- Popup de ayuda -->
-        <dialog id="help-popup">
+        <dialog>
             <!-- Contenido de la ayuda -->
-            <section id="help-content">
+            <section>
                 <h2>Bienvenido a la ayuda web de F1Destkop</h2>
             </section>
         </dialog> 
@@ -99,7 +99,7 @@
 
                 function loadHelp() {
                     const help = new HelpHandler();
-                    document.querySelector("#help-content").innerHTML = help.getHelp();
+                    document.querySelector("dialog section").innerHTML = help.getHelp();
                 }
 
                 loadHelp();

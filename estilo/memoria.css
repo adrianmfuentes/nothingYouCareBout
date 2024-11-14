@@ -1,27 +1,29 @@
 /* Author: Adrian Martinez Fuentes - UO295454 */
 
+/* Estilo para el contenedor del juego */
 /* Especificidad 002 */
-main>section {
+main > section {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Siempre 4 columnas */
     gap: 1rem; /* Aumenta el espacio entre cartas para mejor separación */
-    width: 100%;
+    width: 80%; /* Ajusta el ancho */
     max-width: 960px; /* Ancho máximo para que no se expanda demasiado */
     margin: 2rem auto; /* Centra horizontalmente y ajusta el espacio vertical */
     align-items: center;
     justify-content: center;
 }
 
-/* Especificidad 002 */
-section > h2 {
-    text-align: center; 
-    grid-column: span 4;
-    margin-bottom: 1em; 
-    text-decoration: underline;
+/* Especificidad 003 */
+main > section > h2 {
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    text-align: center; /* Centra el texto */
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    text-decoration: underline; /* Subraya el texto */
 }
 
-/* Especificidad 001 */
-article {
+/* Estilo para cada carta */
+/* Especificidad 003 */
+main > section > article {
     width: 100%; /* Ocupa toda la columna de grid */
     aspect-ratio: 3/5; 
     margin: 0.5em; /* Menor margen para mejorar el uso del espacio */
@@ -38,8 +40,9 @@ article {
     transition: transform 0.5s;
 }
 
-/* Especificidad 002 */
-article header {
+/* Estilo para el encabezado de cada carta */
+/* Especificidad 004 */
+main > section > article header {
     width: 100%;
     display: flex;
     align-items: center;
@@ -47,8 +50,9 @@ article header {
     background-color: transparent;
 }
 
-/* Especificidad 003 */
-article header h2 {
+/* Estilo para el texto del encabezado */
+/* Especificidad 005 */
+main > section > article header h2 {
     margin: 0 0.2em;
     text-decoration: none;
     color: #000000;
@@ -56,45 +60,40 @@ article header h2 {
     backface-visibility: hidden; 
 }
 
-/* Especificidad 005 */
-article header h2, article img {
-    backface-visibility: hidden; 
-    position: absolute; 
-}
-
-/* Especificidad 002 */
-article img {
+/* Estilo para las imágenes */
+/* Especificidad 004 */
+main > section > article img {
     width: 80%; 
     height: auto; 
     align-self: center; 
     transform: rotateY(180deg); 
 }
 
-/* Especificidad 010 */
-[data-state="revealed"] {
+/* Estilo para el estado revelado */
+/* Especificidad 013 */
+main > section > article[data-state="card-revealed"] {
     transform: rotateY(180deg);
 }
 
-/* Especificidad 011 */
-[data-state="hidden"] img {
+/* Ocultar imágenes en estado oculto */
+/* Especificidad 014 */
+main > section > article[data-state="card-hidden"] img {
     display: none; 
 }
 
-/* Especificidad 012 */
-[data-state="hidden"] header h2 {
+/* Mostrar imágenes en estado revelado */
+/* Especificidad 014 */
+main > section > article[data-state="card-revealed"] img {
     display: block; 
 }
 
-/* Especificidad 010 */
-[data-state="revealed"] img {
-    display: block; 
-}
-
-/* Especificidad 012 */
-[data-state="revealed"] header h2 {
+/* Ocultar texto en estado revelado */
+/* Especificidad 015 */
+main > section > article[data-state="card-revealed"] header h2 {
     display: none; 
 }
 
+/* Estilo para el diálogo */
 /* Especificidad 001 */
 dialog {
     width: 100%;
@@ -102,17 +101,19 @@ dialog {
     padding: 1em;
     border: none;
     border-radius: 0.75em;
-    box-shadow: 0 022em 0.75em #00000033;
+    box-shadow: 0 0.22em 0.75em #00000033;
     text-align: center;
 }
 
+/* Estilo para el fondo del diálogo */
 /* Especificidad 002 */
 dialog::backdrop {
     background: #00000080; /* Fondo semitransparente */
 }
 
+/* Estilo para el botón del tutorial */
 /* Especificidad 002 */
-main>button {
+main > button {
     margin-left: 5em;
     padding: 1em 2em;
     background-color: #1F3B4D;
@@ -128,25 +129,25 @@ main>button {
 /* Para pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
     /* Especificidad 002 */
-    main>section {
+    main > section {
         gap: 0.1em;
         margin-left: 0.7em;
     }
 
-    /* Especificidad 001 */
-    article {
+    /* Especificidad 003 */
+    main > section > article {
         width: 60%;
         margin: 0.25em; /* Reduce el margen */
         border-width: 0.2em; /* Reduce el borde */
     }
 
-    /* Especificidad 003 */
-    article header h2 {
+    /* Especificidad 004 */
+    main > section > article header h2 {
         font-size: 0.75em; /* Ajusta el tamaño de fuente */
     }
 
-    /* Especificidad 002 */
-    section > h2 {
+    /* Especificidad 003 */
+    main > section > h2 {
         font-size: 1.05em; /* Ajusta el tamaño de fuente */
     }
 }
@@ -154,24 +155,24 @@ main>button {
 /* Para tablets y pantallas medianas */
 @media (min-width: 481px) and (max-width: 1024px) {
     /* Especificidad 002 */
-    main>section {
+    main > section {
         gap: 1rem;
         width: 90%; /* Ajusta el ancho */
         margin: 1.5rem auto;
     }
 
-    /* Especificidad 001 */
-    article {
+    /* Especificidad 003 */
+    main > section > article {
         margin: 0.75em; /* Ajusta el margen */
     }
 
-    /* Especificidad 003 */
-    article header h2 {
+    /* Especificidad 004 */
+    main > section > article header h2 {
         font-size: 0.95em; /* Ajusta el tamaño de fuente */
     }
 
     /* Especificidad 003 */
-    section > h2 {
+    main > section > h2 {
         font-size: 1.5rem; /* Ajusta el tamaño de fuente */
     }
 }
@@ -179,13 +180,13 @@ main>button {
 /* Para pantallas grandes */
 @media (min-width: 1025px) {
     /* Especificidad 002 */
-    main>section {
+    main > section {
         width: 80%; /* Reduce el ancho en pantallas grandes */
         margin: 2rem auto;
     }
 
-    /* Especificidad 002 */
-    section > h2 {
+    /* Especificidad 003 */
+    main > section > h2 {
         font-size: 2rem; /* Tamaño de fuente más grande */
     }
 }
