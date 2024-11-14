@@ -50,29 +50,35 @@
         </main>
 
         <!-- Pie de página -->
-        <footer id="main-footer">
+        <footer>
             <!-- Botón para abrir el popup de ayuda -->
-            <button id="open-help" class="help-button">Ayuda</button>
+            <button>Ayuda</button>
             <!-- Información del autor -->
             <p>&copy; Adrián Martínez, F1 Desktop</p>
         </footer>
 
         <!-- Popup de ayuda -->
-        <dialog id="help-popup">
+        <dialog>
             <!-- Contenido de la ayuda -->
-            <section id="help-content">
+            <section>
                 <h2>Bienvenido a la ayuda web de F1Destkop</h2>
             </section>
         </dialog> 
            
-        <!-- Script para cargar la información de la ayuda -->
+        <!-- Script para cargar la ayuda -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
+                function loadViajes() {
+                    const viajes = new Viajes();
+                }
+                
                 function loadHelp() {
                     const help = new HelpHandler();
-                    document.querySelector("#help-content").innerHTML = help.getHelp();
+                    document.querySelector("dialog section")
+                        .innerHTML = help.getHelp();
                 }
     
+                loadViajes();
                 loadHelp();
             });
         </script>

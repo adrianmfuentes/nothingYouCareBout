@@ -6,14 +6,14 @@ class Noticias {
             alert("La API de File no es soportada en este navegador.");
         }
 
-        // Oculta el h2 de ultimas noticias
-        document.querySelector('#noticias > h2').setAttribute('data-state', 'hidden');
+        // Oculta el h2 de "Últimas noticias"
+        document.querySelector('main section > h2').setAttribute('data-state', 'hidden');
 
-        // Asegúrate de que el evento change del input file está siendo manejado
-        document.getElementById('fileInput').addEventListener('change', (event) => this.readInputFile(event));
+        // Evento change del input de archivo
+        document.querySelector('input[type="file"]').addEventListener('change', (event) => this.readInputFile(event));
         
-        // Manejar el evento de envío del formulario de añadir noticia
-        document.getElementById('noticiaForm').addEventListener('submit', (event) => this.addNoticia(event));    
+        // Evento submit del formulario para añadir noticia
+        document.querySelector('main form:nth-of-type(2)').addEventListener('submit', (event) => this.addNoticia(event));
     }
 
     readInputFile(event) {
@@ -32,8 +32,8 @@ class Noticias {
     }
 
     displayNoticias(contents) {
-        // Mostrar el h2 de ultimas noticias
-        document.querySelector('#noticias > h2').setAttribute('data-state', 'visible');
+        // Mostrar el h2 de "Últimas noticias"
+        document.querySelector('main section > h2').setAttribute('data-state', 'visible');
 
         const lines = contents.split('\n');
         lines.forEach(line => {
@@ -49,20 +49,20 @@ class Noticias {
                     </footer>
                 </article>
             `;
-            $('section#noticias').append(noticiaHtml);
+            document.querySelector('main section').insertAdjacentHTML('beforeend', noticiaHtml);
         });
     }
 
     addNoticia(event) {
         event.preventDefault();
 
-        // Mostrar el h2 de ultimas noticias
-        document.querySelector('#noticias > h2').setAttribute('data-state', 'visible');
+        // Mostrar el h2 de "Últimas noticias"
+        document.querySelector('main section > h2').setAttribute('data-state', 'visible');
 
-        const titular = document.getElementById('titular').value;
-        const entradilla = document.getElementById('entradilla').value;
-        const autor = document.getElementById('autor').value;
-        const contenido = document.getElementById('contenido').value;
+        // Obtener valores de los campos del formulario
+        const titular = document.querySelector('input[placeholder="Titular"]').value;
+        const entradilla = document.querySelector('input[placeholder="Contenido"]').value;
+        const autor = document.querySelector('input[placeholder="Autor"]').value;
 
         const noticiaHtml = `
             <article>
@@ -70,17 +70,16 @@ class Noticias {
                     <h2>${titular}</h2>
                 </header>
                 <p>${entradilla}</p>
-                <p>${contenido}</p>
                 <footer>
                     <p><em>${autor}</em></p>
                 </footer>
             </article>
         `;
+    
+        // Añadir la noticia al contenedor de noticias
+        document.querySelector('main section').insertAdjacentHTML('beforeend', noticiaHtml);
 
-        $('section#noticias').append(noticiaHtml);
-
-        // Limpia los campos del formulario después de añadir la noticia
-        document.getElementById('noticiaForm').reset();
-        
+        // Limpiar los campos del formulario después de añadir la noticia
+        document.querySelector('form').reset();
     }
 }

@@ -558,7 +558,7 @@ form button:hover {
 
 /* ###################### Estilo para los mapas ###################### */
 /* Especificidad 011 */
-main[data-pages="viajes"] {
+main[data-pages="mapa"] {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -574,7 +574,7 @@ main > h2 {
 }
 
 /* Especificidad 012 */
-main[data-pages="viajes"] > div {
+main[data-pages="mapa"] > div {
     height: 50%;
     width: 90%;
 }
@@ -586,8 +586,9 @@ img[data-map="static-map"] {
     margin-bottom: 2.5em; 
 }
 
-/* Mapa del KML de Circuitos.html */
-/* Espesificidad 013 */
+
+/* ######################### Mapa del KML de Circuitos.html ######################*/
+/* Especificidad 013 */
 main > section:nth-of-type(2) > div  {
     height: 60%;
     width: 80%;
@@ -607,11 +608,8 @@ main > section:nth-of-type(2) > div  {
 
 
 
-
-
-
-
-/* Estilo para el contenido del archivo XML */
+/* ###################### Estilo para el el archivo XML cargado en circuitos.html ###################### */
+/* Especificidad 022 */
 main section:nth-of-type(1)[data-value="xml"] {
     align-items: center;
     border: 1px solid #ddd;
@@ -623,6 +621,7 @@ main section:nth-of-type(1)[data-value="xml"] {
     margin: 1.5rem auto; /* Centrar la caja */
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] h3 {
     font-size: 1.5rem;
     color: #1F3B4D;
@@ -632,6 +631,7 @@ main section:nth-of-type(1)[data-value="xml"] h3 {
     text-align: center;
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] p {
     font-size: 1.2rem;
     color: #333;
@@ -640,12 +640,14 @@ main section:nth-of-type(1)[data-value="xml"] p {
     text-align: justify;
 }
 
+/* Especificidad 046 */
 main section:nth-of-type(1)[data-value="xml"] ul, 
 main section:nth-of-type(1)[data-value="xml"] ol {
     padding-left: 1.5rem;
     margin-bottom: 1rem;
 }
 
+/* Especificidad 048 */
 main section:nth-of-type(1)[data-value="xml"] ul li, 
 main section:nth-of-type(1)[data-value="xml"] ol li {
     font-size: 1.2rem;
@@ -653,12 +655,14 @@ main section:nth-of-type(1)[data-value="xml"] ol li {
     margin-bottom: 0.5rem;
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1.5rem;
 }
 
+/* Especificidad 048 */
 main section:nth-of-type(1)[data-value="xml"] table th, 
 main section:nth-of-type(1)[data-value="xml"] table td {
     padding: 0.5rem;
@@ -666,19 +670,23 @@ main section:nth-of-type(1)[data-value="xml"] table td {
     text-align: left;
 }
 
+/* Especificidad 024 */
 main section:nth-of-type(1)[data-value="xml"] table th {
     background-color: #f4f4f4;
     font-weight: bold;
 }
 
+/* Especificidad 034 */
 main section:nth-of-type(1)[data-value="xml"] table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/* Especificidad 034 */
 main section:nth-of-type(1)[data-value="xml"] table tr:hover {
     background-color: #f1f1f1;
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] img {
     max-width: 100%;
     height: auto;
@@ -688,6 +696,7 @@ main section:nth-of-type(1)[data-value="xml"] img {
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
+/* Especificidad 013 */
 main section:nth-of-type(1) video {
     max-width: 100%;
     height: auto;
@@ -697,6 +706,7 @@ main section:nth-of-type(1) video {
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] a {
     display: block;
     margin-bottom: 1rem;
@@ -705,10 +715,12 @@ main section:nth-of-type(1)[data-value="xml"] a {
     font-weight: bold;
 }
 
+/* Especificidad 033 */
 main section:nth-of-type(1)[data-value="xml"] a:hover {
     text-decoration: underline;
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] blockquote {
     margin: 1rem 0;
     padding: 1rem;
@@ -718,6 +730,7 @@ main section:nth-of-type(1)[data-value="xml"] blockquote {
     color: #555;
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] header {
     font-size: 1.3rem;
     font-weight: bold;
@@ -728,6 +741,7 @@ main section:nth-of-type(1)[data-value="xml"] header {
     padding-bottom: 0.5rem;
 }
 
+/* Especificidad 023 */
 main section:nth-of-type(1)[data-value="xml"] footer {
     font-size: 1rem;
     color: #777;

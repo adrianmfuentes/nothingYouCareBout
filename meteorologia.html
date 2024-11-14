@@ -56,33 +56,36 @@
             </aside>
         </main>
 
-        <footer id="main-footer">
+        <!-- Pie de página -->
+        <footer>
             <!-- Botón para abrir el popup de ayuda -->
-            <button id="open-help" class="help-button">Ayuda</button>
-            <p>Adrián Martínez, F1 Desktop</p>
+            <button>Ayuda</button>
+            <!-- Información del autor -->
+            <p>&copy; Adrián Martínez, F1 Desktop</p>
         </footer>
 
-        <dialog id="help-popup">
-            <section id="help-content">
+        <!-- Popup de ayuda -->
+        <dialog>
+            <!-- Contenido de la ayuda -->
+            <section>
                 <h2>Bienvenido a la ayuda web de F1Destkop</h2>
             </section>
-            <button id="close-help">Cerrar</button>
         </dialog> 
            
-
+        <!-- Script para cargar la ayuda -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                function loadPais() {
-                    const paisInfo = new Pais("Paises Bajos", "Amsterdam", 18268089);
-                    document.querySelector("aside").innerHTML += paisInfo.getAllInformation();
+                function loadViajes() {
+                    const viajes = new Viajes();
                 }
-    
+                
                 function loadHelp() {
                     const help = new HelpHandler();
-                    document.querySelector("#help-content").innerHTML = help.getHelp();
+                    document.querySelector("dialog section")
+                        .innerHTML = help.getHelp();
                 }
     
-                loadPais();
+                loadViajes();
                 loadHelp();
             });
         </script>

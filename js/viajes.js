@@ -42,18 +42,17 @@ class Viajes {
         // Get the static map image
         const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=14&size=400x400&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU`;
         
-        // Create an image element and set its attributes
+        // Create a new image element and set its attributes
         const img = document.createElement('img');
         img.src = mapUrl;
-        img.alt = 'Static Map';
+        img.alt = "Ubicación actual";
         img.setAttribute('data-map', 'static-map');
-        img.id = 'staticMap';
 
-        // Insert the image before the dynamic map and after the h2
-        const main = document.querySelector('main[data-pages="viajes"]');
-        const h2 = main.querySelector('h2');
-        const dynamicMapDiv = main.querySelector('main > div');
-        main.insertBefore(img, dynamicMapDiv);
+        const div = document.querySelector('main > div');
+        const main = document.querySelector('main');
+
+        // Append the image to the main element
+        main.insertBefore(img, div);
     }
 
     showDynamicMap() {
