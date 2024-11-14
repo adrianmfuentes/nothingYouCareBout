@@ -66,9 +66,9 @@ class Memoria {
 
         setTimeout(() => { 
             this.firstCard.setAttribute("data-state", "hidden");
-            this.firstCard.querySelector("img").style.display = "none";
+            this.firstCard.querySelector("img").setAttribute('data-state', 'hidden');
             this.secondCard.setAttribute("data-state", "hidden");
-            this.secondCard.querySelector("img").style.display = "none";
+            this.secondCard.querySelector("img").setAttribute('data-state', 'hidden');
 
             this.resetBoard(); 
         }, 1000); 
@@ -134,7 +134,7 @@ class Memoria {
             const img = document.createElement('img');
             img.src = item.source; 
             img.alt = "Memory card"; 
-            img.style.display = "none"; 
+            img.setAttribute('data-state', 'hidden');
 
             // Agregar la imagen al artículo
             article.appendChild(img);
@@ -162,7 +162,7 @@ class Memoria {
         article.setAttribute('data-state', 'revealed');
 
         const img = article.querySelector('img');
-        img.style.display = "block";
+        img.setAttribute('data-state', 'visible');
 
         if (!this.hasFlippedCard) {
             this.hasFlippedCard = true;

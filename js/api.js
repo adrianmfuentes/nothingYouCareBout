@@ -25,35 +25,41 @@ class Api {
         // Crear las secciones dinámicamente
         this.createSections();
 
+        // Mostrar la pantalla de bienvenida
+        document.querySelector('.welcome-screen').setAttribute('data-state', 'visible');
+
+        // Añadir evento al botón de inicio
         document.getElementById('start-button').addEventListener('click', () => this.startGame());
     }
 
+    // Crear las secciones del juego
     createSections() {
+        // Seleccionar el elemento main del DOM
         const main = document.querySelector('main');
 
         // Crear contenedor de puntuación
         const scoreContainer = document.createElement('section');
         scoreContainer.classList.add('score-container');
         scoreContainer.innerHTML = `<h2>Puntuación: <span id="score">0</span></h2>`;
-        scoreContainer.style.display = 'none';
+        scoreContainer.setAttribute('data-state', 'hidden');
         main.appendChild(scoreContainer);
 
         // Crear contenedor de pregunta
         const questionContainer = document.createElement('section');
         questionContainer.classList.add('question-container');
-        questionContainer.style.display = 'none';
+        questionContainer.setAttribute('data-state', 'hidden');
         main.appendChild(questionContainer);
 
         // Crear contenedor de opciones
         const optionsContainer = document.createElement('section');
         optionsContainer.classList.add('options-container');
-        optionsContainer.style.display = 'none';
+        optionsContainer.setAttribute('data-state', 'hidden');
         main.appendChild(optionsContainer);
 
         // Crear contenedor de puntuación final
         const finalScoreContainer = document.createElement('section');
         finalScoreContainer.classList.add('final-score-container');
-        finalScoreContainer.style.display = 'none';
+        finalScoreContainer.setAttribute('data-state', 'hidden');
         main.appendChild(finalScoreContainer);
 
         // Crear diálogo de puntuación final
@@ -63,10 +69,11 @@ class Api {
     }
 
     startGame() {
-        document.querySelector('.welcome-screen').style.display = 'none';
-        document.querySelector('.score-container').style.display = 'block';
-        document.querySelector('.question-container').style.display = 'block';
-        document.querySelector('.options-container').style.display = 'block';
+        document.querySelector('.welcome-screen').setAttribute('data-state', 'hidden');
+        document.querySelector('.score-container').setAttribute('data-state', 'visible');
+        document.querySelector('.question-container').setAttribute('data-state', 'visible');
+        document.querySelector('.options-container').setAttribute('data-state', 'visible');
+
         this.showQuestion();
         // Llamar a las funciones de las APIs en el inicio del juego
         this.getLocation();  // Geolocalización
