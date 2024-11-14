@@ -1,7 +1,7 @@
 /* Author: Adrian Martinez Fuentes - UO295454 */
 
-/* Especificidad 100 */
-#memory-game {
+/* Especificidad 002 */
+main>section {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Siempre 4 columnas */
     gap: 1rem; /* Aumenta el espacio entre cartas para mejor separación */
@@ -98,50 +98,54 @@ article img {
 /* Especificidad 001 */
 dialog {
     width: 100%;
-    max-width: 31.25em; /* Controla el ancho en pantallas grandes */
+    max-width: 31.25em; 
     padding: 1em;
     border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0.75em;
+    box-shadow: 0 022em 0.75em #00000033;
     text-align: center;
 }
 
 /* Especificidad 002 */
 dialog::backdrop {
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    background: #00000080; /* Fondo semitransparente */
 }
 
-/* Especificidad 100 */
-#tutorial-button {
+/* Especificidad 002 */
+main>button {
     margin-left: 5em;
-    padding: 10px 20px;
+    padding: 1em 2em;
     background-color: #1F3B4D;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5em;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.2em;
 }
 
 /* Media Queries */
 
 /* Para pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
-    #memory-game {
+    /* Especificidad 002 */
+    main>section {
         gap: 0.1em;
         margin-left: 0.7em;
     }
 
+    /* Especificidad 001 */
     article {
         width: 60%;
         margin: 0.25em; /* Reduce el margen */
         border-width: 0.2em; /* Reduce el borde */
     }
 
+    /* Especificidad 003 */
     article header h2 {
         font-size: 0.75em; /* Ajusta el tamaño de fuente */
     }
 
+    /* Especificidad 002 */
     section > h2 {
         font-size: 1.05em; /* Ajusta el tamaño de fuente */
     }
@@ -149,16 +153,24 @@ dialog::backdrop {
 
 /* Para tablets y pantallas medianas */
 @media (min-width: 481px) and (max-width: 1024px) {
-    #memory-game {
+    /* Especificidad 002 */
+    main>section {
         gap: 1rem;
         width: 90%; /* Ajusta el ancho */
         margin: 1.5rem auto;
     }
 
+    /* Especificidad 001 */
     article {
         margin: 0.75em; /* Ajusta el margen */
     }
 
+    /* Especificidad 003 */
+    article header h2 {
+        font-size: 0.95em; /* Ajusta el tamaño de fuente */
+    }
+
+    /* Especificidad 003 */
     section > h2 {
         font-size: 1.5rem; /* Ajusta el tamaño de fuente */
     }
@@ -166,11 +178,13 @@ dialog::backdrop {
 
 /* Para pantallas grandes */
 @media (min-width: 1025px) {
-    #memory-game {
+    /* Especificidad 002 */
+    main>section {
         width: 80%; /* Reduce el ancho en pantallas grandes */
         margin: 2rem auto;
     }
 
+    /* Especificidad 002 */
     section > h2 {
         font-size: 2rem; /* Tamaño de fuente más grande */
     }

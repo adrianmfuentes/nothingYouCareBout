@@ -101,7 +101,7 @@ class Api {
             this.playSound('correct-answer.wav');
         } else {
             button.classList.add('incorrect');
-            this.playSound('incorrect');
+            this.playSound('incorrect-answer.mp3');
         }
 
         buttons.forEach(btn => {
@@ -118,7 +118,7 @@ class Api {
             } else {
                 this.endGame();
             }
-        }, 1000);
+        }, 2500);
 
         document.getElementById('score').textContent = this.score;
     }
@@ -192,11 +192,7 @@ class Api {
 
         ws.onopen = function() {
             alert("Conexión WebSocket establecida.");
-            ws.send("¡Hola servidor WebSocket!");
-        };
-
-        ws.onmessage = function(event) {
-            alert("Mensaje del servidor: " + event.data);
+            ws.send("¡Hola!");
         };
 
         ws.onerror = function(error) {

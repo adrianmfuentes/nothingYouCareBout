@@ -46,28 +46,17 @@ nav a {
         box-sizing: border-box; /* Incluir padding y border en el ancho total */
     }
 
-    /* Especificidad 002 */
-    body > p {
-        display: none; /* Ocultar las migas de navegación */
-    }
-}
-
-/* Media query para pantallas pequeñas (móviles) */
-@media (max-width: 480px) {
     /* Especificidad 001 */
-    nav {
-        display: flex;
+    main > nav {
         flex-direction: column;
-        align-items: center;
-        width: 100%; /* Asegurar que el nav ocupe todo el ancho disponible */
+        align-items: stretch; 
     }
 
     /* Especificidad 002 */
-    nav a {
-        margin-bottom: 0.5rem; /* Aumentar el espacio entre los enlaces */
-        width: 100%; /* Asegurar que los enlaces ocupen todo el ancho disponible */
-        text-align: center; /* Centrar el texto de los enlaces */
-        box-sizing: border-box; /* Incluir padding y border en el ancho total */
+    main > nav a {
+        text-align: center; 
+        width: 100%; 
+        padding: 1rem; 
     }
 
     /* Especificidad 002 */
@@ -96,7 +85,59 @@ nav a {
     }
 
     /* Especificidad 002 */
+    main > nav {
+        max-width: 80%; 
+        margin: 1.5rem auto; 
+    }
+
+    /* Especificidad 002 */
+    main > nav a {
+        font-size: 1.1rem; 
+        padding: 1rem 1.75rem; 
+    }
+
+    /* Especificidad 002 */
     body > p {
         display: none; /* Ocultar las migas de navegación */
     }
+}
+
+/* Especificidad 001 */
+nav {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1.4em auto; 
+    width: 90%; 
+    box-sizing: border-box; 
+    border-radius: 0.1em;
+    background-color: #0A1A2E;
+    box-shadow: 0 0 0 #00000026;
+}
+
+
+/* Especificidad 003 */
+nav a {
+    text-decoration: none;           
+    color: #FFFFFF;                   
+    font-weight: bold;             
+    padding: 1em 1em;
+    font-size: 1.25em;
+    margin: 0.5em auto;       
+    border-radius: 0.25em;            
+    transition: background-color 0.3s, color 0.3s; 
+    width: auto;
+    max-width: 90%;  
+    border: 2px solid #FF0000;
+    /*background-color heredado de nav */
+}
+
+/* Especificidad 024 */
+nav a:hover, nav a:focus {
+    background-color: #1C3D5A;
+    color: #F0F0F0;
+    outline: none;
 }

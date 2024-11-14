@@ -1,14 +1,12 @@
-/* Author: Adrian Martinez Fuentes - UO295454 */
-
 /* ###################### General ###################### */
 
-/* Especificidad 001 */
 main {
     display: grid;
     grid-template-rows: auto 1fr auto auto; 
     grid-template-columns: repeat(4, 1fr);  
     gap: 1rem;
-    max-width: 180%;       
+    width: 50%;
+    max-width: 100%;       
     margin: 0 auto;
     padding: 1em;
     margin-bottom: 1em;
@@ -16,8 +14,15 @@ main {
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
-/* Especificidad 001 */
-main>h2 {
+main > section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-column: 1 / -1;    
+    justify-items: center;
+    gap: 0.5em;
+}
+
+main > h2, main>section h2 {
     text-decoration: none;
     grid-column: 1 / -1; 
     text-align: center;
@@ -26,67 +31,53 @@ main>h2 {
     margin-bottom: 1em;   
 }
 
-/* Especificidad 100 */
-#semaforo {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    grid-column: 1 / -1;    
-    gap: 1em;
-    justify-items: center;
-}
-
-/* Especificidad 010 */
-.light {
+main > section > div {
     aspect-ratio: 1;         
     width: 100%;           
     max-width: 60%;         
     border-radius: 50%;     
     background-color: #0007; 
-    border: 5px solid #000;  
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border: 0.5em solid #000;  
+    box-shadow: 0 0 0.5em #00000080;
 }
 
-/* Especificidad 020 */
-.light.active {
-    background-color: red;  
+main > section > div[data-active="true"] {
+    background-color: red;
 }
 
-/* Especificidad 200 */
-#startButton, #reactionButton {
+main > button:nth-of-type(1),
+main > button:nth-of-type(2) {
     grid-column: span 2;     
-    padding: 10px;
-    font-size: 1em;
+    padding: 0.15em;
+    font-size: 1.75em;
     border: none;
-    border-radius: 5px;
+    width: 80%;
+    height: auto;
+    border-radius: 0.5em;
     cursor: pointer;
-    margin: 1.5em 3em;
+    margin: 1.5em auto;
     transition: background-color 0.3s;
 }
 
-/* Especificidad 100 */
-#startButton {
+main > button:nth-of-type(1) {
     background-color: #28a745;
     color: white;
 }
 
-/* Especificidad 100 */
-#startButton:hover {
+main > button:nth-of-type(1):hover {
     background-color: #218838;
 }
 
-/* Especificidad 100 */
-#reactionButton {
+main > button:nth-of-type(2) {
     background-color: #007bff;
     color: white;
 }
 
-/* Especificidad 100 */
-#reactionButton:hover {
+main > button:nth-of-type(2):hover {
     background-color: #0069d9;
 }
 
-/* Especificidad 100 */
-#reactionTime {
+main > p {
     grid-column: 1 / -1;    
     text-align: center;
     font-size: 1.2em;
@@ -103,31 +94,33 @@ main>h2 {
     }
 }
 
-/* Especificidad 031 */
-main.load .light:nth-child(1) {
+main.load > section > div:nth-child(1) {
     animation: lightUp 0.5s ease forwards;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
 }
 
-/* Especificidad 031 */
-main.load .light:nth-child(2) {
+main.load > section > div:nth-child(2) {
     animation: lightUp 0.5s ease forwards;
     animation-delay: 1s;
     animation-fill-mode: forwards;
 }
 
-/* Especificidad 031 */
-main.load .light:nth-child(3) {
+main.load > section > div:nth-child(3) {
     animation: lightUp 0.5s ease forwards;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
 }
 
-/* Especificidad 031 */
-main.load .light:nth-child(4) {
+main.load > section > div:nth-child(4) {
     animation: lightUp 0.5s ease forwards;
     animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+main.load > section > div:nth-child(5) {
+    animation: lightUp 0.5s ease forwards;
+    animation-delay: 2.5s;
     animation-fill-mode: forwards;
 }
 
@@ -141,101 +134,79 @@ main.load .light:nth-child(4) {
     }
 }
 
-/* Especificidad 021 */
-main.unload .light {
+main.unload > section > div {
     animation: out 0.1s forwards;
 }
 
-
 /* Para pantallas pequeñas (móviles) */
 @media (max-width: 480px) {
+    /* Especificidad 001 */
     main {
-        grid-template-columns: 1fr;
-        max-width: 100%;
-        padding: 0.5em;
+        width: 80%;
     }
 
-    main > h2 {
-        font-size: 1.25em;
-    }
-
-    #semaforo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .light {
-        width: 50px;
-        height: 50px;
-        margin: 0.5em 0;
-    }
-
-    #startButton, #reactionButton {
+    /* Especificidad 003 */
+    main > section > div {
+        border: 0.15em solid #000;   
         width: 100%;
-        margin: 0.5em 0;
-    }
-}
-
-/* Para tablets (ancho mínimo 481px y máximo 1200px) */
-@media (min-width: 481px) and (max-width: 1200px) {
-    main {
-        grid-template-columns: 1fr;
-        margin: 0;
-    }
-
-    main > h2 {
-        font-size: 1.5em;
-    }
-
-    #semaforo {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap; /* Permitir que los enlaces se coloquen en varias líneas */
-    }
-
-    .light {
-        align-items: top;
-        width: 10%;
         height: auto;
-        margin-left: 0.8em;
-        margin-right: 0.8em;
-        flex: 1 1 auto; /* Permitir que los enlaces se ajusten al espacio disponible */
     }
 
-    #startButton, #reactionButton {
-        width: 100%;
-        margin: 0.5em 0;
+    main > button:nth-of-type(1), 
+    main > button:nth-of-type(2) {
+        grid-column: 1 / -1; 
+    }
+
+    main > button:nth-of-type(1) {
+        margin-top: 2.5em;
+        margin-bottom: 0.005em;
+    }
+
+    main > button:nth-of-type(2) {
+        margin-top: 0;
     }
 }
 
-/* Para pantallas medianas (ancho máximo 768px) */
-@media (max-width: 768px) {
+/* Para tablets y pantallas medianas */
+@media (min-width: 481px) and (max-width: 1050px) {
+    /* Especificidad 001 */
     main {
-        grid-template-columns: 1fr;
-        max-width: 90%;
-        padding: 1em;
+        width: 90%; 
+        margin: 1.5rem auto;
     }
 
-    main > h2 {
-        font-size: 1.25em;
-    }
-
-    #semaforo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .light {
-        width: 20%;
-        height: 20%;
-        margin: 0.5em 0;
-    }
-
-    #startButton, #reactionButton {
+    /* Especificidad 002 */
+    main > section {
+        gap: 1rem;
         width: 100%;
-        margin: 0.5em 0;
+        margin: 1.5rem auto;
+    }
+
+    /* Especificidad 003 */
+    main > section > div {
+        width: 80%; 
+        height: auto;
+        margin: 0.5em auto;
+        border: 0.15em solid #000;   
+    }
+
+    /* Especificidad 005 */
+    main > h2, main > section h2 {
+        font-size: 1.5rem; 
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    /* Especificidad 002 */
+    main > button {
+        grid-column: 1 / -1; 
+        margin: 1em auto;
+    }
+
+    /* Especificidad 003 */
+    main > section > div {
+        width: 80%; 
+        height: auto;
+        margin: 0.5em auto;
     }
 }

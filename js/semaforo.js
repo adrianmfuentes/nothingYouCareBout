@@ -18,8 +18,11 @@ class Semaforo {
         title.textContent = "Juego de Tiempo de Reacción - Semáforo";
         main.appendChild(title);
 
-        const semaforoContainer = document.createElement("div");
+        const semaforoContainer = document.createElement("section");
         semaforoContainer.id = "semaforo";
+        const h2 = document.createElement('h2');
+        h2.textContent = "Semáforo"; 
+        semaforoContainer.appendChild(h2);
         main.appendChild(semaforoContainer);
 
         for (let i = 1; i <= this.lights; i++) {

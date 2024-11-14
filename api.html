@@ -15,7 +15,6 @@
         
         <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-        <link rel="stylesheet" type="text/css" href="estilo/menu-juegos.css" />
         <link rel="stylesheet" type="text/css" href="estilo/footer.css" />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
 
@@ -25,7 +24,8 @@
         <!-- Añadir referencia al archivo ayuda.js -->
         <script src="js/ayuda.js"></script>
     </head>
-    <body>
+
+    <body data-page="api">
         <header>
             <h1><a href="index.html">F1 Desktop</a></h1>
 
@@ -51,19 +51,6 @@
         
 
         <main>
-            <!-- Botón para abrir el tutorial -->
-            <button id="tutorial-button">Tutorial</button>
-
-            <!-- Popup de tutorial -->
-            <dialog id="tutorial-popup">
-                <h2>¿Cómo jugar?</h2>
-                <p>El objetivo del juego es responder correctamente a las preguntas sobre la Fórmula 1.
-                    Cada pregunta tiene cuatro respuestas posibles, de las cuales solo una es correcta.
-                    Para responder, selecciona la respuesta que consideres correcta. Si aciertas, 
-                    sumarás un punto a tu marcador. Si fallas, no sumarás puntos.¡Buena suerte!</p>
-                <button id="close-tutorial">Cerrar</button>
-            </dialog>
-
             <!-- Pantalla de bienvenida con botón de inicio -->
             <section class="welcome-screen">
                 <h2>Trivial F1</h2>
@@ -97,21 +84,7 @@
     
                 new Api();
                 loadHelp();
-
-                // Abrir el tutorial
-                const tutorialButton = document.getElementById('tutorial-button');
-                const tutorialPopup = document.getElementById('tutorial-popup');
-                const closeTutorial = document.getElementById('close-tutorial');
-
-                tutorialButton.addEventListener('click', () => {
-                    tutorialPopup.showModal();
-                });
-
-                // Cerrar el tutorial
-                closeTutorial.addEventListener('click', () => {
-                    tutorialPopup.close();
-                });
-                });
+            });
         </script>
     </body>
 </html>

@@ -7,7 +7,6 @@
     - Texto de nav y h1: FFFFFF (Blanco, 11.73 contraste con 1F3B4D)
 */ 
 
-
 /* Especificidad 001 */
 html {
     font-family: "helvetica neue", helvetica, arial, sans-serif;
@@ -33,13 +32,11 @@ header, footer {
     color: #FFFFFF;
 }
 
-
 /* Especificidad 001 */
 body > p {
     margin-left: 0.4em;;
     font-size: small;
 }
-
 
 /* ###################### Header del body ###################### */
 /* Especificidad 002 */
@@ -69,12 +66,7 @@ nav a {
 /* Especificidad 011 */
 a:hover {
     border: 2px solid #A9C4D4; /* Color de borde */
-}
-
-.active{ 
-    border: 2px solid #A9C4D4; /* Color de borde */
-    border-radius: 8px; /* Bordes redondos */
-    /*background-color heredado de header*/
+    border-radius: 0.75em;
 }
 
 /* ###################### Main del body ###################### */
@@ -90,7 +82,6 @@ h3,h4 {
     text-decoration: underline;
     font-size: large;
 }
-
 
 /* ###################### Listas del body ###################### */
 /* Especificidad 004 */
@@ -138,19 +129,18 @@ dd {
     margin-bottom: 1.5rem;
 }
 
-
 /* ###################### Estilizacion de la tabla ###################### */
 /* Especificidad 001 */
 table {
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #333; /* Borde más visible para la tabla */
+    border: 2px solid #333;
     font-family: Arial, sans-serif;
     margin-bottom: 2rem;
-    background-color: #fff; /* Fondo blanco para la tabla */
+    background-color: #fff;
     /* color heredado de body */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle un efecto de elevación */
+    box-shadow: 0 0.22em 0.5em #0000001a; 
 }
 
 /* Especificidad 002 */
@@ -164,14 +154,14 @@ table caption {
     /* background-color heredado de table */
 }
 
-/* Especificidad 011 */
+/* Especificidad 002 */
 th, td {
-    padding: 1em 2em; /* Relleno de las celdas */
+    padding: 1em 2em; 
     text-align: left;
-    border: 0.5em solid #ddd; /* Borde para las celdas */
+    border: 0.5em solid #ddd; 
 }
 
-/* Especificidad 011 */
+/* Especificidad 001 */
 th {
     background-color: #f4f4f4;
     color: #333;
@@ -195,22 +185,17 @@ th:nth-child(1) {
     width: 30%;
 }
 
-
 /* ###################### Elementos multimedia ###################### */
-/* Especificidad 003 */
+/* Especificidad 001 */
 video {
     width: 60%;
     height: auto;
 }
 
+/* Especificidad 001 */
 img {
     width: 40%;
     height: auto;
-}
-
-.ocon.pequeño {
-    width: auto;
-    height: 10%;
 }
 
 /* ###################### Juegos ###################### */
@@ -219,10 +204,10 @@ main>h2 {
     text-align: center;
 }
 
-
 /* ###################### Ayuda ###################### */
-/* Especificidad 100 */
-#help-popup {
+
+/* Especificidad 011 */
+dialog[open] {
     width: 80%;
     max-width: 100%;
     max-height: 60%;
@@ -232,55 +217,50 @@ main>h2 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    /* color heredado de body */
     z-index: 1000;
     resize: both;
     overflow: auto;
     transition: all 0.3s ease-in-out;
 }
 
-/* Especificidad 101 */
-#help-popup h2 {
+/* Especificidad 012 */
+dialog[open] h2 {
     font-size: 1.8em;
     margin-bottom: 1em;
     text-align: center;
     color: #333;
-    /* background-color heredado de #help-popup */
 }
 
-/* Especificidad 101 */
-#help-popup h3 {
+/* Especificidad 012 */
+dialog[open] h3 {
     font-size: 1.5em;
     margin-top: 1em;
     margin-bottom: 0.5em;
     color: #555;
-    /* background-color heredado de #help-popup */
 }
 
-/* Especificidad 101 */
-#help-popup p {
+/* Especificidad 012 */
+dialog[open] p {
     font-size: 1.2em;
     margin-bottom: 0.5em;
     color: #666;
-    /* background-color heredado de #help-popup */
 }
 
-/* Especificidad 101 */
-#help-popup ul {
+/* Especificidad 012 */
+dialog[open] ul {
     list-style-type: disc;
     padding-left: 1.5em;
 }
 
-/* Especificidad 102 */
-#help-popup ul li {
+/* Especificidad 013 */
+dialog[open] ul li {
     font-size: 1.2em;
     margin-bottom: 0.5em;
     color: #777;
-    /* background-color heredado de #help-popup */
 }
 
-/* Especificidad 201 */
-#help-popup button#close-help {
+/* Especificidad 022 */
+dialog[open] button[id="close-help"] {
     display: block;
     margin: 1em auto 0;
     padding: 0.5em 1em;
@@ -293,38 +273,31 @@ main>h2 {
     transition: background-color 0.3s ease-in-out;
 }
 
-/* Especificidad 211 */
-#help-popup button#close-help:hover {
+/* Especificidad 032 */
+dialog[open] button[id="close-help"]:hover {
     background-color: #163240;
-    /* color heredado de #help-popup button#close-help */
 }
 
 /* Media Queries para adaptabilidad */
 @media (max-width: 768px) {
-    #help-popup {
-        /* El validador de CCS da un warning por la redifición de width, 
-        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
+    /* Especificidad 011 */
+    dialog[open] {
         width: 90%;
-        /* El validador de CCS da un warning por la redifición del padding (top, bottom, left, right), 
-        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
         padding: 1em;
     }
 
-    #help-popup h2 {
-        /* El validador de CCS da un warning por la redifición del tamaño de la fuente, 
-        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
+    /* Especificidad 012 */
+    dialog[open] h2 {
         font-size: 1.5em;
     }
 
-    #help-popup h3 {
-        /* El validador de CCS da un warning por la redifición del tamaño de la fuente, 
-        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
+    /* Especificidad 012 */
+    dialog[open] h3 {
         font-size: 1.3em;
     }
 
-    #help-popup p, #help-popup ul li {
-        /* El validador de CCS da un warning por la redifición del tamaño de la fuente, 
-        pero es una advertencia controlada. Redefinirlo es necesario para garntizar la adaptabilidad */
+    /* Especificidad 025 */
+    dialog[open] p, dialog[open] ul li {
         font-size: 1em;
     }
 }
@@ -332,8 +305,8 @@ main>h2 {
 
 /* ###################### JUEGO TRIVIAL F1 (API.HTML) ###################### */
 
-/* Especificidad 010 */
-.welcome-screen {
+/* Especificidad 023 */
+body[data-page="api"] main > section:nth-of-type(1) {
     display: grid;
     grid-template-rows: auto auto; /* Dos filas: una para el h2 y otra para los botones */
     justify-items: center; /* Centra los elementos horizontalmente */
@@ -343,16 +316,16 @@ main>h2 {
     margin: 2em;
 }
 
-/* Especificidad 011 */
-.welcome-screen h2 {
+/* Especificidad 024 */
+body[data-page="api"] main > section:nth-of-type(1) > h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     grid-row: 1; /* Coloca el h2 en la primera fila */
 }
 
-/* Especificidad 011 */
-.welcome-screen button {
+/* Especificidad 024 */
+body[data-page="api"] main > section:nth-of-type(1) > button {
     padding: 1rem 2rem;
     font-size: 1.5rem; 
     background-color: #1F3B4D;
@@ -361,19 +334,19 @@ main>h2 {
     border-radius: 1em;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    grid-row: 2; /* Coloca los botones en la segunda fila */
+    grid-row: 2; 
 }
 
-/* Especificidad 01'1' */
-.score-container {
+/* Especificidad 023 */
+body[data-page="api"] main > section:nth-of-type(2) {
     text-align: center;
     margin-top: 2rem;
     font-size: 1.5rem;
     color: #1F3B4D;
 }
 
-/* Especificidad 010 */
-.question-container {
+/* Especificidad 023 */
+body[data-page="api"] main > section:nth-of-type(3) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -385,8 +358,8 @@ main>h2 {
     color: #1F3B4D;
 }
 
-/* Especificidad 010 */
-.options-container {
+/* Especificidad 023 */
+body[data-page="api"] main > section:nth-of-type(4) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -397,8 +370,8 @@ main>h2 {
     margin: 2em 0;
 }
 
-/* Especificidad 011 */
-.options-container button {
+/* Especificidad 024 */
+body[data-page="api"] main > section:nth-of-type(4) > button {
     width: 80%;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -411,32 +384,31 @@ main>h2 {
     transition: background-color 0.3s ease;
 }
 
-/* Especificidad 021 */
-.options-container button:hover {
+/* Especificidad 034 */
+body[data-page="api"] main > section:nth-of-type(4) > button:hover {
     background-color: #163240;
 }
 
-
-/* Especificidad 021 */
-.options-container button.correct {
+/* Especificidad 034 */
+body[data-page="api"] main > section:nth-of-type(4) > button.correct {
     background-color: #4CAF50;
 }
 
-/* Especificidad 021 */
-.options-container button.incorrect {
+/* Especificidad 034 */
+body[data-page="api"] main > section:nth-of-type(4) > button.incorrect {
     background-color: #F44336; 
 }
 
-/* Especificidad 010 */
-.final-score-container {
+/* Especificidad 023 */
+body[data-page="api"] main > section:nth-of-type(5) {
     text-align: center;
     margin-top: 2rem;
     font-size: 1.5rem;
     color: #1F3B4D;
 }
 
-/* Especificidad 100 */
-#score-dialog {
+/* Especificidad 023 */
+body[data-page="api"] main > dialog:nth-of-type(1) {
     display: none;
     flex-direction: row;
     justify-content: center;
@@ -452,66 +424,135 @@ main>h2 {
     margin: auto;
 }
 
-/* Especificidad 110 */
-#score-dialog.show {
+/* Especificidad 033 */
+body[data-page="api"] main > dialog:nth-of-type(1).show {
     display: flex; 
     flex-direction: column; /* Alinea los elementos en columna */
 }
 
-/* Especificidad 101 */
-#score-dialog h2 {
+/* Especificidad 024 */
+body[data-page="api"] main > dialog:nth-of-type(1) > h2 {
     margin-bottom: 1em;
 }
 
-/* Especificidad 101 */
-#score-dialog p {
+/* Especificidad 024 */
+body[data-page="api"] main > dialog:nth-of-type(1) > p {
     margin: 0.5em 0;
 }
 
-/* Especificidad 220 */
-#score-dialog .final-score, 
-#score-dialog .high-score {
+/* Especificidad 066 */
+body[data-page="api"] main > dialog:nth-of-type(1) > .final-score, 
+body[data-page="api"] main > dialog:nth-of-type(1) > .high-score {
     font-weight: bold;
-}
-
-/* Especificidad 001 */
-dialog {
-    width: 100%;
-    max-width: 31.25em; /* Controla el ancho en pantallas grandes */
-    padding: 1em;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* Especificidad 002 */
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-}
-
-/* Especificidad 100 */
-#tutorial-button {
-    margin-left: 5em;
-    padding: 10px 20px;
-    background-color: #1F3B4D;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
 }
 
 /* Media Queries para adaptabilidad */
 @media (max-width: 768px) {
-
-    #start-button {
+    /* Especificidad 022 */
+    body[data-page="api"] button[id="start-button"] {
         font-size: 1.2em;
         padding: 0.8em 1.5em;
     }
 
-    .options-container button {
+    /* Especificidad 022 */
+    body[data-page="api"] main > section:nth-of-type(4) > button {
         font-size: 1em;
         padding: 0.8em;
     }
+}
+
+/* ###################### FORMULARIOS ###################### */
+/* Especificidad: 001 */
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 0.5em solid #ddd;
+    border-radius: 0.5em;
+    padding: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 3em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/* Especificidad: 002 */
+form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+/* Especificidad: 012 */
+form input[type="text"], form textarea {
+    width: 60%;
+    padding: 1em;
+    margin: 0.5em 0;
+    border: 0.25em solid #ddd;
+    border-radius: 0.5em;
+}
+
+/* Especificidad: 012 */
+form input[type="file"] {
+    margin: 0.5em auto;
+    padding: 0.5em;
+    border: 0.25em solid #ccc;
+    border-radius: 0.5em;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Especificidad: 022 */
+form input[type="file"]:hover {
+    background-color: #e9e9e9;
+}
+
+/* Especificidad: 002 */
+form button {
+    background-color: #1F3B4D;
+    color: #fff;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Especificidad: 012 */
+form button:hover {
+    background-color: #163240;
+}
+
+
+/* ###################### GENERACION MAPAS ###################### */
+
+main[data-pages="viajes"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main>h2 {
+    font-size: 3.4em;
+    margin-bottom: 1.8em;
+    text-decoration: underline;
+}
+
+/* Especificidad 100 */
+main[data-pages="viajes"] > div {
+    height: 50vw;
+    width: 90%;
+}
+
+/* Imagen del mapa estático */
+img[data-map="static-map"] {
+    background-color: cadetblue;
+    width: 50%; 
+    height: 40%; 
+    margin-bottom: 9.5em ; 
 }

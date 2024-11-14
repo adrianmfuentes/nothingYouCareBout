@@ -13,7 +13,7 @@ footer {
 }
 
 /* Especificidad 011 */
-footer .help-button {
+footer button {
     padding: 0.5em 1em;
     background-color: #0000ff; /* Azul normal */
     color: #FFFFFF;
@@ -24,7 +24,7 @@ footer .help-button {
 }
 
 /* Esºpecificidad 012 */
-footer p.copyright {
+footer p {
     margin: 0.5em;
 }
 
@@ -38,7 +38,7 @@ footer p.copyright {
     }
 
     /* Especificidad 011 */
-    footer .help-button {
+    footer button {
         padding: 0.3em 0.6em;
         font-size: 0.8em;
     }

@@ -33,7 +33,7 @@
                 <a href="meteorologia.html">Meteorologia </a>
                 <a href="viajes.html">Viajes </a>
                 <a href="calendario.html">Calendario </a>
-                <a class="active" href="circuitos.html">Circuitos </a>
+                <a href="circuitos.html">Circuitos </a>
                 <a href="juegos.html">Juegos </a>
             </nav>
         </header>
@@ -45,7 +45,10 @@
             
             <!-- Subir y procesar un archivo XML -->
             <h3>Subir archivo XML</h3>
-            <input type="file" id="xmlFileInput" accept=".xml">
+            <form>
+                <label for="xmlFileInput">Selecciona un archivo XML</label>
+                <input type="file" id="xmlFileInput" accept=".xml">
+            </form>
             <section class="xmlContent">
                 <h3>Contenido del archivo XML</h3>
                 <!-- Aquí se mostrará el contenido del archivo XML -->
@@ -53,7 +56,10 @@
 
             <!-- Subir y procesar un archivo KML -->
             <h3>Subir archivo KML</h3>
-            <input type="file" id="kmlFileInput" accept=".kml">
+            <form>
+                <label for="kmlFileInput">Selecciona un archivo KML</label>
+                <input type="file" id="kmlFileInput" accept=".kml">
+            </form>
             <section class="kmlContent">
                 <h3>Contenido del archivo KML</h3>
                 <!-- Aquí se mostrará el contenido del archivo KML -->
@@ -61,7 +67,10 @@
 
             <!-- Subir y procesar un archivo SVG -->
             <h3>Subir archivo SVG</h3>
-            <input type="file" id="svgFileInput" accept=".svg">
+            <form>
+                <label for="svgFileInput">Selecciona un archivo SVG</label>
+                <input type="file" id="svgFileInput" accept=".svg">
+            </form>
             <section class="svgContent">
                 <h3>Contenido del archivo SVG</h3>
                 <!-- Aquí se mostrará el contenido del archivo SVG -->
@@ -117,7 +126,18 @@
                     const reader = new FileReader();
                     reader.onload = function(e) {
                         const kmlContent = e.target.result;
-                        $('.kmlContent').html(kmlContent);
+                        
+                        // Crear un mapa de Google Maps
+                        const map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 8,
+                            center: { lat: -34.397, lng: 150.644 }
+                        });
+
+                        // Cargar el archivo KML en el mapa -->
+                        const kmlLayer = new google.maps.KmlLayer({
+                            url: URL.createObjectURL(file),
+                            map: map
+                        });
                     };
                     reader.readAsText(file);
                 }

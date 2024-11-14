@@ -21,9 +21,35 @@ class Memoria {
         this.firstCard = null;
         this.secondCard = null;
 
+        // Barajar los elementos
         this.shuffleElements();
+
+        // Crear los elementos en el DOM
         this.createElements();
+
+        // Añadir los eventos a los elementos
         this.addEventListeners();
+
+        // Cargar el tutorial
+        this.createAndLoadGameTutorial();
+        
+    }
+
+    createAndLoadGameTutorial(){
+        // Selección de elementos del tutorial
+        const tutorialButton = document.getElementById('tutorial-button');
+        const tutorialPopup = document.getElementById('tutorial-popup');
+        const closeTutorial = document.getElementById('close-tutorial');
+        
+        // Mostrar el tutorial
+        tutorialButton.addEventListener('click', () => {
+            tutorialPopup.showModal();
+        });
+        
+        // Cerrar el tutorial
+        closeTutorial.addEventListener('click', () => {
+                tutorialPopup.close();
+        });
     }
 
     shuffleElements() {

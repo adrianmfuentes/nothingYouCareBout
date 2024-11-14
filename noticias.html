@@ -40,7 +40,7 @@
             <nav>
                 <a href="index.html">Home </a>
                 <a href="piloto.html">Piloto </a>
-                <a class="active" href="noticias.html">Noticias </a>
+                <a href="noticias.html">Noticias </a>
                 <a href="meteorologia.html">Meteorologia </a>
                 <a href="viajes.html">Viajes </a>
                 <a href="calendario.html">Calendario </a>
@@ -53,40 +53,36 @@
 
         <main>
             <!-- Sección para mostrar las noticias -->
-            <form class="noticia-form">
-                <label for="fileInput">Selecciona una imagen para subir:</label>
+            <form>
+                <label for="fileInput">Selecciona un archivo:</label>
                 <input type="file" id="fileInput">
             </form>
-
+    
             <!-- Visualización de las noticias -->
             <section id="noticias">
                 <h2>Últimas noticias</h2>
             </section>
-
+    
             <!-- Sección para añadir una noticia -->
             <h2>Añadir Noticia</h2>
-
+    
             <!-- Formulario para añadir una noticia -->
             <form class="noticia-form" id="noticiaForm">
                 <!-- Añadir el titular de la noticia -->
                 <label for="titular">Titular:</label>
                 <input type="text" id="titular" placeholder="Titular">
-
-                <!-- Añadir la entradilla de la noticia -->
-                <label for="entradilla">Entradilla:</label>
-                <input type="text" id="entradilla" placeholder="Entradilla">
-
+    
+                <!-- Añadir el contenido de la noticia -->
+                <label for="contenido">Contenido:</label>
+                <input type="text" id="contenido" placeholder="Entradilla">
+    
                 <!-- Añadir el autor de la noticia -->
                 <label for="autor">Autor:</label>
                 <input type="text" id="autor" placeholder="Autor">
-
-                <!-- Añadir el contenido de la noticia -->
-                <label for="contenido">Contenido:</label>
-                <textarea id="contenido" placeholder="Contenido"></textarea>
-
+    
                 <!-- Botón para añadir la noticia -->
                 <button type="submit">Añadir Noticia</button>
-            </form>
+                </form>
         </main>
 
         <!-- Pie de página -->

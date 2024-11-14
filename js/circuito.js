@@ -39,7 +39,7 @@ class Viajes {
     }
 
     showStaticMap() {
-        const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=14&size=400x400&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU`;
+        const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=14&size=400x400&key=YOUR_API_KEY`;
         document.getElementById('staticMap').src = mapUrl;
     }
 
@@ -50,8 +50,7 @@ class Viajes {
         });
         new google.maps.Marker({
             position: { lat: this.latitude, lng: this.longitude },
-            map: map,
-            title: "Ubicación actual"
+            map: map
         });
     }
 }
