@@ -15,8 +15,8 @@
         
         <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-        <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
         <link rel="stylesheet" type="text/css" href="estilo/footer.css" />
+        <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Rock+Salt" />
 
         <!-- Añadir referencia al archivo memoria.js -->
@@ -51,29 +51,29 @@
         </nav>
         
         <main>
-            <!-- Botón para abrir el tutorial -->
-            <button>Tutorial</button>
-
-            <!-- Popup de tutorial -->
-            <dialog>
-                <h2>¿Cómo jugar?</h2>
-                <p>El objetivo del juego es encontrar todas las parejas de cartas en el menor tiempo posible. 
-                    Haz clic en dos cartas para ver sus imágenes; si coinciden, se quedarán reveladas, 
-                    de lo contrario se voltearán de nuevo. ¡Buena suerte!</p>
-                <button id="close-tutorial">Cerrar</button>
-            </dialog>
-
             <!-- Contenedor del juego -->
             <section>
                 <h2>Juego de memoria</h2>
+                    <!-- Botón para abrir el tutorial -->
+                <button>Tutorial</button>
+
+                <!-- Popup de tutorial -->
+                <dialog>
+                    <h2>¿Cómo jugar?</h2>
+                    <p>El objetivo del juego es encontrar todas las parejas de cartas en el menor tiempo posible. 
+                        Haz clic en dos cartas para ver sus imágenes; si coinciden, se quedarán reveladas, 
+                        de lo contrario se voltearán de nuevo. ¡Buena suerte!</p>
+                    <button id="close-tutorial">Cerrar</button>
+                </dialog>
+
+                <!-- Popup de victoria -->
+                <dialog>
+                    <h2>¡Felicidades!</h2>
+                    <p>Has encontrado todas las parejas.</p>
+                </dialog>
+
                 <!-- Tablero de juego -->
             </section>
-
-            <!-- Popup de victoria -->
-            <dialog>
-                <h2>¡Felicidades!</h2>
-                <p>Has encontrado todas las parejas.</p>
-            </dialog>
         </main>        
 
         <!-- Pie de página -->

@@ -135,7 +135,6 @@ class Pais {
                     }
                 });
     
-                // Ahora recorremos las previsiones por día y mostramos solo una por cada fecha
                 let dayCount = 0; // Contador para asegurarnos de que solo mostramos previsión de 5 días
                 for (const date in previsionesPorDia) {
                     if (dayCount >= 5) return; // Limitar a solo 5 días
@@ -151,7 +150,8 @@ class Pais {
                     article.append(`<img src="https://openweathermap.org/img/w/${previs.icon}.png" alt="Icono del tiempo">`);
                     article.append(`<p>Precipitación: ${previs.rain} mm</p>`);
     
-                    $('#main-footer').before(article); // Insertar antes del footer
+                    // Insertar el artículo antes del footer
+                    $('footer').before(article); 
     
                     dayCount++; // Incrementar el contador de días
                 }

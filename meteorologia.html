@@ -75,9 +75,8 @@
         <!-- Script para cargar la ayuda -->
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                function loadViajes() {
-                    const viajes = new Viajes();
-                }
+                const pais = new Pais();
+                document.querySelector("aside").innerHTML += pais.getAllInformation();
                 
                 function loadHelp() {
                     const help = new HelpHandler();
@@ -85,7 +84,6 @@
                         .innerHTML = help.getHelp();
                 }
     
-                loadViajes();
                 loadHelp();
             });
         </script>

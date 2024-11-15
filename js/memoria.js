@@ -106,7 +106,7 @@ class Memoria {
 
         if (allRevealed) {
             // Extraer el popup del DOM
-            const popup = document.querySelector('dialog');
+            const popup = document.querySelector('main dialog:nth-of-type(2)');
 
             // Mostrar el popup por 5 segundos            
             popup.showModal();
@@ -117,7 +117,7 @@ class Memoria {
     }
 
     createElements() {
-        const container = document.querySelector('main > section'); 
+        const container = document.querySelector('main section'); 
 
         this.elements.forEach((item) => {
             // Crear un nuevo artículo para cada elemento

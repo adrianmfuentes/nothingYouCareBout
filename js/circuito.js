@@ -290,7 +290,6 @@ class ProcesamientoCircuitos {
     mostrarContenidoSVG(svgDoc) {
         document.querySelector("main section:nth-of-type(3)").setAttribute("data-state", "visible");
         const contenedor = document.querySelector("main section:nth-of-type(3)");
-        contenedor.innerHTML = ""; // Limpiar contenido previo
 
         // Mostrar el contenido del SVG
         const svgElement = svgDoc.documentElement;

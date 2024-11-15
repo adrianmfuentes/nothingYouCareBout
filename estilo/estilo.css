@@ -314,7 +314,8 @@ dialog[open] button[id="close-help"]:hover {
 
 /* ###################### Estilo del API.HTML ###################### */
 /* Especificidad 023 */
-body[data-page="api"] main > section:nth-of-type(1) {
+body[data-page="api"] main > section:nth-of-type(1),
+body[data-page="api"] main > section:nth-of-type(2) {
     display: grid;
     grid-template-rows: auto auto; 
     justify-items: center; 
@@ -325,7 +326,8 @@ body[data-page="api"] main > section:nth-of-type(1) {
 }
 
 /* Especificidad 024 */
-body[data-page="api"] main > section:nth-of-type(1) > h2 {
+body[data-page="api"] main > section:nth-of-type(1) > h2,
+body[data-page="api"] main > section:nth-of-type(2) > h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -333,7 +335,8 @@ body[data-page="api"] main > section:nth-of-type(1) > h2 {
 }
 
 /* Especificidad 024 */
-body[data-page="api"] main > section:nth-of-type(1) > button {
+body[data-page="api"] main > section:nth-of-type(1) > button,
+body[data-page="api"] main > section:nth-of-type(2) button {
     padding: 1rem 2rem;
     font-size: 1.5rem; 
     background-color: #1F3B4D;
@@ -346,14 +349,14 @@ body[data-page="api"] main > section:nth-of-type(1) > button {
 }
 
 /* Especificidad 023 */
-body[data-page="api"] main > section:nth-of-type(2) {
+body[data-page="api"] main > section:nth-of-type(3) {
     text-align: center;
     margin-top: 2rem;
     font-size: 1.5rem;
 }
 
 /* Especificidad 023 */
-body[data-page="api"] main > section:nth-of-type(3) {
+body[data-page="api"] main > section:nth-of-type(4) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -365,7 +368,7 @@ body[data-page="api"] main > section:nth-of-type(3) {
 }
 
 /* Especificidad 023 */
-body[data-page="api"] main > section:nth-of-type(4) {
+body[data-page="api"] main > section:nth-of-type(5) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -377,7 +380,7 @@ body[data-page="api"] main > section:nth-of-type(4) {
 }
 
 /* Especificidad 024 */
-body[data-page="api"] main > section:nth-of-type(4) > button {
+body[data-page="api"] main > section:nth-of-type(5) > button {
     width: 80%;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -406,19 +409,19 @@ body[data-page="api"] main > section[data-state="hidden"] {
 }
 
 /* Especificidad 034 */
-body[data-page="api"] main > section:nth-of-type(4) > button:hover {
+body[data-page="api"] main > section:nth-of-type(5) > button:hover {
     background-color: #163240;
     /* color heredado de body[data-page="api"] main > section:nth-of-type(4) > button */
 }
 
 /* Especificidad 034 */
-body[data-page="api"] main > section:nth-of-type(4) > button.correct {
+body[data-page="api"] main > section:nth-of-type(5) button[data-state="correct"] {
     background-color: #4CAF50;
     /* color heredado de body[data-page="api"] main > section:nth-of-type(4) > button */
 }
 
 /* Especificidad 034 */
-body[data-page="api"] main > section:nth-of-type(4) > button.incorrect {
+body[data-page="api"] main > section:nth-of-type(5) button[data-state="incorrect"] {
     background-color: #F44336; 
     /* color heredado de body[data-page="api"] main > section:nth-of-type(4) > button */
 }
@@ -594,6 +597,13 @@ main > section:nth-of-type(2) > div  {
     width: 80%;
 }
 
+/* ######################### Mapa del SG de Circuitos.html ######################*/
+/* Especificidad 013 */
+main > section:nth-of-type(3) > svg  {
+    justify-content: center;
+    height: 10%;
+    width: 70%
+}
 
 /* ###################### Mostrar/Ocultar elementos ###################### */
 /* Especificidad 010 */
@@ -605,8 +615,6 @@ main > section:nth-of-type(2) > div  {
 [data-state="visible"] {
     display: block;
 }
-
-
 
 /* ###################### Estilo para el el archivo XML cargado en circuitos.html ###################### */
 /* Especificidad 022 */
