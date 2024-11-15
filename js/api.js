@@ -327,9 +327,7 @@ class Api {
         const question = this.questions[this.currentQuestionIndex];
         const buttons = document.querySelectorAll("body > main > section")[4].querySelectorAll("button");
 
-        if(this.gameMode !== 'voice') {
-            buttons.forEach(button => button.disabled = true);
-        }
+        buttons.forEach(button => button.disabled = true);
 
         if (selectedOption === question.answer) {
             this.score++;
@@ -347,10 +345,6 @@ class Api {
 
             btn.disabled = true;
         });
-
-        if(this.gameMode !== 'voice') {
-            buttons.forEach(button => button.disabled = false);
-        }
 
         setTimeout(() => {
             this.currentQuestionIndex++;
